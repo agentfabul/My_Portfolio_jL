@@ -5,7 +5,7 @@
 
 // ── CONFIG ────────────────────────────────────────────────
 // Change this to your actual GitHub username
-const GITHUB_USERNAME_DEFAULT = 'alexrivera-dev';
+const GITHUB_USERNAME_DEFAULT = 'agentfabul';
 const GITHUB_API_BASE = 'https://api.github.com';
 
 // ── Language Colors ───────────────────────────────────────
