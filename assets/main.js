@@ -1,4 +1,4 @@
-/* ── Particle Canvas ──────────────────────────── */
+
 (function() {
   const canvas = document.getElementById('particle-canvas');
   if (!canvas) return;
@@ -73,7 +73,7 @@
   animate();
 })();
 
-/* ── GitHub Loader ────────────────────────────── */
+
 const LANG_COLORS = { 'JavaScript':'#f1e05a','TypeScript':'#3178c6','Python':'#3572A5','HTML':'#e34c26','CSS':'#563d7c','C++':'#f34b7d','C':'#555555','default':'#8b949e' };
 function buildRepoCard(r) {
   const lang = r.language||'Unknown';
@@ -114,10 +114,10 @@ async function loadGitHubRepos(username) {
   }
 }
 
-/* ── Main Interactions ────────────────────────── */
+
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* Theme */
+  
   const html = document.documentElement;
   const themeBtn = document.getElementById('themeToggle');
   const setTheme = (theme) => {
@@ -132,13 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('portfolio-theme', next);
   });
 
-  /* Navbar scroll */
+  
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar?.classList.toggle('scrolled', window.scrollY > 20);
   }, {passive:true});
 
-  /* Mobile menu */
+  
   const menuBtn = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   let menuOpen = false;
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     l.addEventListener('click', () => { menuOpen=false; mobileMenu?.classList.add('hidden'); });
   });
 
-  /* Typing animation */
+  
   const typingEl = document.querySelector('.typing-text');
   const phrases = ['AI QA Engineer','Playwright Automation Tester','Python QA Validation','API Testing Analyst','AI Data Quality Analyst','Defect Evidence Builder'];
   let pIdx=0, cIdx=0, del=false;
@@ -169,13 +169,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   typeLoop();
 
-  /* Reveal observers */
+  
   const revObs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:.1});
   document.querySelectorAll('.reveal-section').forEach(el => revObs.observe(el));
   const itemObs = new IntersectionObserver(entries => entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*90); }), {threshold:.1});
   document.querySelectorAll('.reveal-item').forEach(el => itemObs.observe(el));
 
-  /* Skill tabs */
+  
   const tabs = document.querySelectorAll('.skill-tab');
   const panels = document.querySelectorAll('.skill-panel');
   tabs.forEach(tab => {
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* Project filters */
+  
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
   filterBtns.forEach(btn => {
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* Contact form */
+  
   const form = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
   form?.addEventListener('submit', e => {
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(()=>{ form.style.display='none'; formSuccess?.classList.remove('hidden'); }, 1200);
   });
 
-  /* Back to top */
+  
   const backBtn = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     backBtn?.classList.toggle('hidden', window.scrollY <= 400);
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, {passive:true});
   backBtn?.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
 
-  /* Active nav */
+  
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
   const navObs = new IntersectionObserver(entries => entries.forEach(e => {
@@ -231,13 +231,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }), {rootMargin:'-50% 0px -50% 0px'});
   sections.forEach(s => navObs.observe(s));
 
-  /* Badge stagger */
+  
   document.querySelectorAll('.tech-badges .tech-badge,.tech-badge').forEach((b,i) => {
     b.style.opacity='0'; b.style.transform='translateY(14px)';
     setTimeout(()=>{ b.style.transition='all .5s ease'; b.style.opacity='1'; b.style.transform='translateY(0)'; }, 900+i*80);
   });
 
-  /* Stats counter */
+  
   function animateCounter(el, end, suf='') {
     let s=0; const step=end/45;
     const t=setInterval(()=>{s+=step;if(s>=end){el.textContent=end+suf;clearInterval(t);return;}el.textContent=Math.floor(s)+suf;},30);
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sr = document.querySelector('.stats-row');
   if(sr) statsObs.observe(sr);
 
-  /* Smooth scroll */
+  
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const t = document.querySelector(a.getAttribute('href'));
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* Cursor glow */
+  
   if(window.innerWidth > 1024) {
     const glow = document.createElement('div');
     glow.style.cssText='position:fixed;pointer-events:none;z-index:9999;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,0.05) 0%,transparent 70%);transform:translate(-50%,-50%);transition:left .12s ease,top .12s ease;';
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousemove', e => { glow.style.left=e.clientX+'px'; glow.style.top=e.clientY+'px'; });
   }
 
-  /* Card tilt */
+  
   document.querySelectorAll('.skill-card,.project-card,.repo-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const r=card.getBoundingClientRect();
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('mouseleave', ()=>{ card.style.transform=''; });
   });
 
-  /* Project image fallback check */
+  
   document.querySelectorAll('.project-visual img').forEach(img => {
     img.addEventListener('load', () => {
       img.style.display='block';
@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* GitHub loader event binding */
+  
   const lb=document.getElementById('loadReposBtn'), gi=document.getElementById('githubUsername');
   lb?.addEventListener('click',()=>{ const u=gi.value.trim(); if(u) loadGitHubRepos(u); });
   gi?.addEventListener('keydown',e=>{ if(e.key==='Enter'){ const u=gi.value.trim(); if(u) loadGitHubRepos(u); } });
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('%c Playwright · Python · AI Data Quality · Cum Laude 2026', 'color:#FF6B00;font-size:12px;font-family:monospace;');
 });
 
-/* Image modal */
+
 function openImageModal(src, title) {
   const modal=document.getElementById('imageModal'), img=document.getElementById('imageModalImg'), t=document.getElementById('imageModalTitle');
   img.src=src; t.textContent=title; modal.classList.remove('hidden'); document.body.style.overflow='hidden';
@@ -305,7 +305,7 @@ function openImageModal(src, title) {
 function closeImageModal() { document.getElementById('imageModal').classList.add('hidden'); document.body.style.overflow=''; }
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeImageModal(); });
 
-/* ── Chatbot ──────────────────────────────────── */
+
 (function(){
   const faq=[
     {kw:['who','name','you'],ans:"I'm John Loyd F. Fabul — I am a BIT Computer Technology student passionate about building Arduino-based systems and IoT solutions, turning ideas into real working prototypes—from smart bins to automated vending machines—that solve real-world problems. Alongside hardware development, I am developing as a Junior Data Analyst with skills in Excel, Google Sheets, SQL, Python, basic Power BI, data validation, and data cleaning to transform raw data into meaningful insights. I also work as a Software Quality Assurance Analyst, experienced in manual testing, Playwright automation testing, API testing, user acceptance testing, system integration testing, using Chrome DevTools, and creating test reports in Google Sheets. After testing, I create clear and user-friendly system manuals using Figma. In the field of AI and automation, I design agentic workflows for data validation, build Chrome extensions for automation, develop web applications, and plan efficient workflows using tools such as ChatGPT, Claude, Gemini, Google AI Studio, Manus AI, and Codex. Additionally, I bring customer service experience through handling customer calls, ensuring clear communication, problem resolution, and professional support."},

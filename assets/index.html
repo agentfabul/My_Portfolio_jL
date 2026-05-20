@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<!-- ═══════════════ NAVBAR ═══════════════ -->
+
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="#" class="nav-logo">
@@ -52,17 +52,17 @@
   </div>
 </nav>
 
-<!-- ═══════════════ HERO ═══════════════ -->
+
 <section id="hero" class="hero-section flex items-center relative overflow-hidden pt-20">
   <canvas id="particle-canvas"></canvas>
   <div class="hero-glow-blob blob-1"></div>
   <div class="hero-glow-blob blob-2"></div>
-  <!-- Circuit grid overlay -->
+  
   <div class="circuit-bg absolute inset-0 pointer-events-none" style="mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, black 100%);opacity:.35;"></div>
 
   <div class="max-w-7xl mx-auto px-6 py-20 w-full relative z-10">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <!-- Left content -->
+      
       <div>
         <div class="boot-badge">
           <span class="boot-dot"></span>
@@ -103,7 +103,7 @@
         </div>
       </div>
 
-      <!-- Right: photo + stats -->
+      
       <div class="flex flex-col items-center lg:items-start gap-8">
         <div class="qa-command-panel">
           <div class="qa-panel-bar">
@@ -123,7 +123,7 @@
           </div>
         </div>
         <div class="photo-outer mx-auto lg:mx-0">
-          <!-- Animated ring SVG -->
+          
           <svg class="photo-ring-svg" viewBox="0 0 440 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);">
             <circle cx="220" cy="220" r="210" stroke="url(#ringGrad)" stroke-width="2" stroke-dasharray="12 6"/>
             <defs>
@@ -134,7 +134,7 @@
               </linearGradient>
             </defs>
           </svg>
-          <!-- Inner orbit rings -->
+          
           <div class="orbit-ring"></div>
           <div class="orbit-ring orbit-ring-2"></div>
 
@@ -143,7 +143,7 @@
                  onerror="this.parentElement.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--text-muted);gap:8px\'><span style=\'font-size:64px\'>👨‍💻</span><span style=\'font-family:var(--font-mono);font-size:12px;opacity:.5\'>JLF</span></div>'"/>
           </div>
 
-          <!-- Floating orbit badges -->
+          
           <div class="orbit-badge tl">
             <span class="text-cyan">⚡</span> Playwright QA
           </div>
@@ -158,7 +158,7 @@
           </div>
         </div>
 
-        <!-- Stats -->
+        
         <div class="stats-row grid grid-cols-3 gap-3 w-full max-w-xs">
           <div class="stat-card">
             <div class="stat-num font-display">8+</div>
@@ -177,7 +177,7 @@
     </div>
   </div>
 
-  <!-- Scroll indicator -->
+  
   <div class="scroll-indicator">
     <div class="scroll-mouse">
       <div class="scroll-dot-m"></div>
@@ -186,7 +186,7 @@
   </div>
 </section>
 
-<!-- ═══════════════ ABOUT ═══════════════ -->
+
 <section id="about" class="section-pad reveal-section">
   <div class="max-w-7xl mx-auto px-6">
     <div class="section-tag">About Me</div>
@@ -264,7 +264,7 @@
   </div>
 </section>
 
-<!-- ═══════════════ SKILLS ═══════════════ -->
+
 <section id="skills" class="section-pad section-alt reveal-section">
   <div class="max-w-7xl mx-auto px-6">
     <div class="section-tag">Skill Set</div>
@@ -280,7 +280,7 @@
       <button class="skill-tab" data-tab="technical">🔌 Technical</button>
     </div>
 
-    <!-- AI QA & Automation -->
+    
     <div class="skill-panel active" data-panel="qa">
       <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Recruiter-facing QA stack for reliable AI and web products</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -323,7 +323,7 @@
       </div>
     </div>
 
-    <!-- Arduino & IoT -->
+    
     <div class="skill-panel" data-panel="arduino">
       <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Embedded systems and connected devices</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -384,7 +384,7 @@
       </div>
     </div>
 
-    <!-- MS Office -->
+    
     <div class="skill-panel" data-panel="office">
       <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Professional documentation and reporting</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -406,7 +406,7 @@
       </div>
     </div>
 
-    <!-- Design -->
+    
     <div class="skill-panel" data-panel="design">
       <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Visual design and content creation</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -428,7 +428,7 @@
       </div>
     </div>
 
-    <!-- Leadership -->
+    
     <div class="skill-panel" data-panel="leadership">
       <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Proven organizational and people skills</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -460,7 +460,7 @@
       </div>
     </div>
 
-    <!-- Technical -->
+    
     <div class="skill-panel" data-panel="technical">
       <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Hands-on technical and systems knowledge</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -489,7 +489,7 @@
   </div>
 </section>
 
-<!-- ═══════════════ PROJECTS ═══════════════ -->
+
 <section id="projects" class="section-pad reveal-section">
   <div class="max-w-7xl mx-auto px-6">
     <div class="section-tag">Featured Projects</div>
@@ -506,7 +506,7 @@
 
     <div class="projects-grid" id="projectsGrid">
 
-      <!-- Project 0: QA Automation Lab -->
+      
       <div class="project-card" data-category="qa">
         <div class="project-visual" style="background:linear-gradient(135deg,#03111c,#062a32);">
           <div class="project-code-visual">
@@ -542,7 +542,7 @@
         </div>
       </div>
 
-      <!-- Project 1: Smart Bin -->
+      
       <div class="project-card" data-category="iot arduino automation">
         <div class="project-visual" style="background:linear-gradient(135deg,#040d1e,#0a2040);">
           <img src="/src/smartbin/smart-bin.png" alt="Smart Bin"/>
@@ -550,7 +550,7 @@
             <div class="project-visual-icon">🗑️</div>
             <div class="project-visual-label">Smart Waste System</div>
           </div>
-          <!-- Circuit SVG overlay -->
+          
           <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 80 H80 V40 H140" stroke="#00D4FF" stroke-width="1" fill="none"/>
             <path d="M260 120 H220 V160 H180 V200" stroke="#FF6B00" stroke-width="1" fill="none"/>
@@ -577,7 +577,7 @@
         </div>
       </div>
 
-      <!-- Project 2: Rice Vending -->
+      
       <div class="project-card" data-category="iot arduino automation">
         <div class="project-visual" style="background:linear-gradient(135deg,#071a10,#0f3020);">
           <img src="/src/rice_vending_machine/ricevendingmachine.png" alt="Rice Vending Machine"/>
@@ -608,7 +608,7 @@
         </div>
       </div>
 
-      <!-- Project 3: Smoke Alarm -->
+      
       <div class="project-card" data-category="iot arduino automation">
         <div class="project-visual" style="background:linear-gradient(135deg,#140818,#2a1040);">
           <img src="/src/smokealarmsystem/smokealarm.png" alt="Smoke Alarm CCTV"/>
@@ -644,7 +644,7 @@
   </div>
 </section>
 
-<!-- ═══════════════ EXPERIENCE ═══════════════ -->
+
 <section id="workflow" class="section-pad section-alt reveal-section">
   <div class="max-w-7xl mx-auto px-6">
     <div class="section-tag">Experience</div>
@@ -692,7 +692,7 @@
   </div>
 </section>
 
-<!-- ═══════════════ GITHUB ═══════════════ -->
+
 <section id="github" class="section-pad reveal-section">
   <div class="max-w-7xl mx-auto px-6">
     <div class="section-tag">GitHub</div>
@@ -724,7 +724,7 @@
   </div>
 </section>
 
-<!-- ═══════════════ CONTACT ═══════════════ -->
+
 <section id="contact" class="section-pad section-alt reveal-section">
   <div class="max-w-7xl mx-auto px-6">
     <div class="section-tag">Contact</div>
@@ -732,7 +732,7 @@
     <p class="section-sub mb-12">Open to QA internships, entry-level AI QA roles, test automation work, and software quality opportunities.</p>
 
     <div class="grid lg:grid-cols-5 gap-12">
-      <!-- Info -->
+      
       <div class="lg:col-span-2 space-y-5">
         <div class="contact-cta">
           <h3 style="font-family:var(--font-display);font-size:1.15rem;font-weight:800;margin-bottom:8px;">Open to opportunities</h3>
@@ -761,7 +761,7 @@
         </a>
       </div>
 
-      <!-- Form -->
+      
       <div class="lg:col-span-3">
         <div class="contact-form-card">
           <form id="contactForm" class="space-y-5">
@@ -807,7 +807,7 @@
   </div>
 </section>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
+
 <footer class="footer">
   <div class="max-w-7xl mx-auto px-6 py-8">
     <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -828,7 +828,7 @@
 
 <button id="backToTop" class="back-to-top hidden" aria-label="Back to top">↑</button>
 
-<!-- Image Modal -->
+
 <div id="imageModal" class="image-modal hidden">
   <div class="image-modal-overlay" onclick="closeImageModal()"></div>
   <div class="image-modal-content">
@@ -838,7 +838,7 @@
   </div>
 </div>
 
-<!-- Chatbot -->
+
 <button id="aiChatButton" class="chatbot-btn" title="Chat with John's Assistant">🤖</button>
 <div id="aiChatContainer" class="hidden" style="position:fixed;bottom:84px;right:20px;z-index:10000;width:360px;max-width:96%;box-shadow:var(--shadow);">
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;">
@@ -858,9 +858,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     JAVASCRIPT
-     ═══════════════════════════════════════ -->
+
 <script src="/assets/main.js"></script>
 </body>
 </html>

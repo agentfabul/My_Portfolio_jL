@@ -1,14 +1,5 @@
-/* ════════════════════════════════════════════════════════
-   github.js — GitHub Repositories Loader
-   Fetches live repos from the GitHub API
-   ════════════════════════════════════════════════════════ */
-
-// ── CONFIG ────────────────────────────────────────────────
-// Change this to your actual GitHub username
 const GITHUB_USERNAME_DEFAULT = 'agentfabul';
 const GITHUB_API_BASE = 'https://api.github.com';
-
-// ── Language Colors ───────────────────────────────────────
 const LANG_COLORS = {
   'JavaScript': '#f1e05a',
   'TypeScript': '#3178c6',
@@ -29,8 +20,6 @@ const LANG_COLORS = {
 function getLangColor(lang) {
   return LANG_COLORS[lang] || LANG_COLORS['default'];
 }
-
-// ── Repo Card Builder ─────────────────────────────────────
 function buildRepoCard(repo) {
   const lang = repo.language || 'Unknown';
   const color = getLangColor(lang);
@@ -63,8 +52,6 @@ function buildRepoCard(repo) {
     </div>
   `;
 }
-
-// ── Main Loader ───────────────────────────────────────────
 async function loadGitHubRepos(username) {
   const grid = document.getElementById('reposGrid');
   const demo = document.getElementById('demoRepos');
@@ -73,8 +60,6 @@ async function loadGitHubRepos(username) {
   const errorMsg = document.getElementById('githubErrorMsg');
 
   if (!grid || !loading) return;
-
-  // Reset
   grid.innerHTML = '';
   if (demo) demo.classList.add('hidden');
   loading.classList.remove('hidden');
@@ -108,11 +93,7 @@ async function loadGitHubRepos(username) {
       grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-muted);font-size:14px;">No public repositories found for <strong>${username}</strong>.</div>`;
       return;
     }
-
-    // Filter out forks optionally (show all for now)
     grid.innerHTML = repos.map(buildRepoCard).join('');
-
-    // Animate cards in
     grid.querySelectorAll('.repo-card').forEach((card, i) => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(20px)';
@@ -127,12 +108,9 @@ async function loadGitHubRepos(username) {
     loading.classList.add('hidden');
     errorMsg.textContent = err.message;
     error.classList.remove('hidden');
-    // Fall back to demo repos
     if (demo) demo.classList.remove('hidden');
   }
 }
-
-// ── Event Binding (runs after DOM is ready) ───────────────
 document.addEventListener('DOMContentLoaded', () => {
   const loadBtn = document.getElementById('loadReposBtn');
   const input = document.getElementById('githubUsername');
