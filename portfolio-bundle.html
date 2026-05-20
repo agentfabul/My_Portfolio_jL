@@ -3,991 +3,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>John Loyd F. Fabul — Arduino Developer · IoT Engineer · BIT Student</title>
+  <title>John Loyd F. Fabul — AI QA Engineer · Playwright Automation · Python Testing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300&family=Nunito:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-  /* ═══════════════════════════════════════
-     DESIGN SYSTEM
-     ═══════════════════════════════════════ */
-  :root {
-    --font-display: 'Exo 2', sans-serif;
-    --font-body: 'Nunito', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    --cyan:    #00D4FF;
-    --cyan-dim: #00A8CC;
-    --orange:  #FF6B00;
-    --orange-dim: #CC5500;
-    --green:   #00FF88;
-    --red:     #FF4757;
-    --radius:  12px;
-    --radius-sm: 7px;
-    --t: 0.25s ease;
-    --glow-cyan: 0 0 20px rgba(0,212,255,0.35), 0 0 60px rgba(0,212,255,0.12);
-    --glow-orange: 0 0 20px rgba(255,107,0,0.35), 0 0 60px rgba(255,107,0,0.12);
-  }
-
-  [data-theme="dark"] {
-    --bg:         #030810;
-    --bg-alt:     #070e1e;
-    --surface:    rgba(0,212,255,0.03);
-    --surface-h:  rgba(0,212,255,0.07);
-    --border:     rgba(0,212,255,0.12);
-    --border-h:   rgba(0,212,255,0.35);
-    --text:       #e8f4ff;
-    --text-muted: rgba(200,225,255,0.5);
-    --card-bg:    rgba(7,14,30,0.9);
-    --navbar-bg:  rgba(3,8,16,0.92);
-    --shadow:     0 8px 40px rgba(0,0,0,0.7);
-  }
-  [data-theme="light"] {
-    --bg:         #f0f6ff;
-    --bg-alt:     #e4eeff;
-    --surface:    rgba(0,100,200,0.05);
-    --surface-h:  rgba(0,100,200,0.1);
-    --border:     rgba(0,100,200,0.15);
-    --border-h:   rgba(0,100,200,0.4);
-    --text:       #0a1428;
-    --text-muted: rgba(10,20,50,0.55);
-    --card-bg:    rgba(255,255,255,0.9);
-    --navbar-bg:  rgba(240,246,255,0.94);
-    --shadow:     0 8px 40px rgba(0,50,150,0.1);
-  }
-
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;font-size:16px;}
-  body{
-    font-family:var(--font-body);
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.65;
-    overflow-x:hidden;
-    transition:background .4s,color .4s;
-  }
-  ::-webkit-scrollbar{width:5px;}
-  ::-webkit-scrollbar-track{background:var(--bg);}
-  ::-webkit-scrollbar-thumb{background:var(--cyan);border-radius:99px;}
-  ::selection{background:var(--cyan);color:#000;}
-
-  /* ── Circuit board grid bg ── */
-  .circuit-bg {
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 44px 44px;
-  }
-
-  /* ── Glowing gradient text ── */
-  .grad-cyan {
-    background: linear-gradient(135deg, var(--cyan) 0%, #a8edff 50%, var(--cyan) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .grad-orange {
-    background: linear-gradient(135deg, var(--orange) 0%, #ffb347 50%, var(--orange) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .grad-mix {
-    background: linear-gradient(135deg, var(--cyan), var(--orange));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .text-cyan  { color: var(--cyan); }
-  .text-orange{ color: var(--orange); }
-
-  /* ═══════════════════════════════════════
-     NAVBAR
-     ═══════════════════════════════════════ */
-  #navbar {
-    border-bottom: 1px solid transparent;
-    transition: all .5s ease;
-  }
-  #navbar.scrolled {
-    background: var(--navbar-bg);
-    border-bottom-color: var(--border);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    box-shadow: 0 4px 30px rgba(0,212,255,0.06);
-  }
-  .nav-logo {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.35rem;
-    letter-spacing: -0.03em;
-    text-decoration: none;
-    color: var(--text);
-    position: relative;
-  }
-  .nav-logo .bracket { color: var(--cyan); }
-
-  .nav-link {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: .85rem;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-decoration: none;
-    position: relative;
-    transition: color var(--t);
-  }
-  .nav-link::after {
-    content: '';
-    position: absolute; bottom: -5px; left: 0;
-    width: 0; height: 2px;
-    background: var(--cyan);
-    box-shadow: var(--glow-cyan);
-    border-radius: 2px;
-    transition: width var(--t);
-  }
-  .nav-link:hover, .nav-link.active-nav { color: var(--cyan); }
-  .nav-link:hover::after, .nav-link.active-nav::after { width: 100%; }
-
-  .btn-hire {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: .8rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    padding: 8px 20px;
-    border-radius: var(--radius-sm);
-    background: transparent;
-    border: 1.5px solid var(--cyan);
-    color: var(--cyan);
-    text-decoration: none;
-    cursor: pointer;
-    transition: all var(--t);
-    position: relative;
-    overflow: hidden;
-  }
-  .btn-hire::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: var(--cyan);
-    transform: translateX(-100%);
-    transition: transform .3s ease;
-    z-index: 0;
-  }
-  .btn-hire:hover::before { transform: translateX(0); }
-  .btn-hire:hover { color: #000; box-shadow: var(--glow-cyan); }
-  .btn-hire span { position: relative; z-index: 1; }
-
-  .theme-btn {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px;
-    transition: all var(--t);
-  }
-  .theme-btn:hover { border-color: var(--cyan); box-shadow: var(--glow-cyan); }
-  [data-theme="dark"] .sun-icon { display:block; }
-  [data-theme="dark"] .moon-icon { display:none; }
-  [data-theme="light"] .sun-icon { display:none; }
-  [data-theme="light"] .moon-icon { display:block; }
-
-  .menu-line {
-    display: block; height: 2px;
-    background: var(--text); border-radius: 2px;
-    transition: all .3s; width: 22px;
-  }
-  .menu-line.short { width: 14px; }
-  .mobile-menu {
-    background: var(--navbar-bg);
-    backdrop-filter: blur(24px);
-    border-top: 1px solid var(--border);
-  }
-
-  /* ═══════════════════════════════════════
-     HERO
-     ═══════════════════════════════════════ */
-  .hero-section {
-    position: relative;
-    background: var(--bg);
-    min-height: 100vh;
-  }
-  #particle-canvas {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .hero-glow-blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
-    opacity: .55;
-  }
-  .blob-1 {
-    width: 600px; height: 600px;
-    top: -150px; left: -100px;
-    background: radial-gradient(circle, rgba(0,212,255,.2) 0%, transparent 70%);
-    animation: blob-drift 8s ease-in-out infinite;
-  }
-  .blob-2 {
-    width: 500px; height: 500px;
-    bottom: -100px; right: -50px;
-    background: radial-gradient(circle, rgba(255,107,0,.15) 0%, transparent 70%);
-    animation: blob-drift 10s ease-in-out infinite reverse;
-  }
-  @keyframes blob-drift {
-    0%,100% { transform: translate(0,0) scale(1); }
-    33% { transform: translate(30px,-20px) scale(1.05); }
-    66% { transform: translate(-20px,30px) scale(.97); }
-  }
-
-  /* Boot badge */
-  .boot-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 5px 14px;
-    border-radius: 99px;
-    border: 1px solid rgba(0,255,136,.3);
-    background: rgba(0,255,136,.06);
-    color: var(--green);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: .04em;
-    margin-bottom: 24px;
-  }
-  .boot-dot {
-    width: 7px; height: 7px;
-    background: var(--green);
-    border-radius: 50%;
-    animation: pulse-dot 1.8s infinite;
-    box-shadow: 0 0 8px var(--green);
-  }
-  @keyframes pulse-dot {
-    0%,100% { opacity:1; transform:scale(1); }
-    50% { opacity:.4; transform:scale(.8); }
-  }
-
-  .hero-name {
-    font-family: var(--font-display);
-    font-weight: 900;
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    line-height: .95;
-    letter-spacing: -.04em;
-    color: var(--text);
-  }
-  .glitch-text {
-    position: relative;
-    display: inline-block;
-  }
-  .glitch-text::before,.glitch-text::after {
-    content: attr(data-text);
-    position: absolute; inset: 0;
-    background: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-  .glitch-text::before {
-    background: linear-gradient(135deg, var(--cyan), #a8edff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    clip-path: polygon(0 0,100% 0,100% 45%,0 45%);
-    transform: translateX(-2px);
-    animation: glitch-top 5s infinite linear;
-  }
-  .glitch-text::after {
-    background: linear-gradient(135deg, var(--orange), #ffb347);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    clip-path: polygon(0 55%,100% 55%,100% 100%,0 100%);
-    transform: translateX(2px);
-    animation: glitch-bot 5s infinite linear;
-  }
-  @keyframes glitch-top {
-    0%,90%,100% { transform:translateX(0); opacity:0; }
-    91% { transform:translateX(-3px); opacity:.8; }
-    93% { transform:translateX(2px); opacity:.6; }
-    95% { transform:translateX(0); opacity:0; }
-  }
-  @keyframes glitch-bot {
-    0%,90%,100% { transform:translateX(0); opacity:0; }
-    92% { transform:translateX(3px); opacity:.8; }
-    94% { transform:translateX(-2px); opacity:.6; }
-    96% { transform:translateX(0); opacity:0; }
-  }
-
-  /* Terminal typing */
-  .terminal-wrapper {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: rgba(0,0,0,.45);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 8px 16px;
-    font-family: var(--font-mono);
-    font-size: 14px;
-    color: var(--cyan);
-    margin-bottom: 24px;
-    backdrop-filter: blur(8px);
-  }
-  .terminal-prompt { color: var(--orange); }
-  .typing-text { color: var(--cyan); }
-  .cursor {
-    width: 9px; height: 16px;
-    background: var(--cyan);
-    display: inline-block;
-    animation: blink 1s step-end infinite;
-    border-radius: 1px;
-    vertical-align: middle;
-    box-shadow: 0 0 8px var(--cyan);
-  }
-  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
-
-  .hero-desc {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--text-muted);
-    max-width: 520px;
-    margin-bottom: 36px;
-  }
-
-  /* CTA buttons */
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--font-display); font-weight: 700;
-    font-size: .88rem; letter-spacing: .06em; text-transform: uppercase;
-    padding: 12px 28px;
-    border-radius: var(--radius-sm);
-    background: linear-gradient(135deg, var(--cyan), var(--cyan-dim));
-    color: #000;
-    text-decoration: none; border: none; cursor: pointer;
-    transition: all var(--t);
-    position: relative; overflow: hidden;
-  }
-  .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--glow-cyan);
-  }
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--font-display); font-weight: 700;
-    font-size: .88rem; letter-spacing: .06em; text-transform: uppercase;
-    padding: 12px 28px;
-    border-radius: var(--radius-sm);
-    background: transparent;
-    color: var(--text);
-    text-decoration: none;
-    border: 1.5px solid var(--border);
-    cursor: pointer;
-    transition: all var(--t);
-  }
-  .btn-secondary:hover {
-    border-color: var(--orange);
-    color: var(--orange);
-    transform: translateY(-3px);
-    box-shadow: var(--glow-orange);
-  }
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--font-display); font-weight: 600;
-    font-size: .85rem; letter-spacing: .05em; text-transform: uppercase;
-    padding: 12px 24px;
-    border-radius: var(--radius-sm);
-    background: var(--surface);
-    color: var(--text-muted);
-    text-decoration: none; border: none; cursor: pointer;
-    transition: all var(--t);
-  }
-  .btn-ghost:hover { background: var(--surface-h); color: var(--text); }
-
-  /* Tech badges */
-  .tech-badge {
-    display: inline-flex; align-items: center; gap: 5px;
-    padding: 5px 12px;
-    border-radius: 5px;
-    font-family: var(--font-mono); font-size: 11.5px; font-weight: 500;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    transition: all var(--t);
-    cursor: default;
-  }
-  .tech-badge:hover {
-    border-color: var(--cyan);
-    color: var(--cyan);
-    background: rgba(0,212,255,.06);
-    transform: translateY(-2px);
-    box-shadow: var(--glow-cyan);
-  }
-  .tech-badge .dot {
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--cyan);
-    flex-shrink: 0;
-  }
-
-  /* Photo container */
-  .photo-outer {
-    position: relative;
-    width: min(100%, 420px);
-    aspect-ratio: 1;
-  }
-  .photo-ring-svg {
-    position: absolute; inset: -12px;
-    animation: ring-spin 10s linear infinite;
-  }
-  @keyframes ring-spin { to { transform:rotate(360deg); } }
-  .photo-inner {
-    position: absolute; inset: 16px;
-    border-radius: 50%;
-    background: var(--bg-alt);
-    overflow: hidden;
-    border: 2px solid var(--border);
-    z-index: 1;
-  }
-  .photo-inner img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-  }
-  .orbit-ring {
-    position: absolute; inset: -40px;
-    border-radius: 50%;
-    border: 1px dashed rgba(0,212,255,.18);
-    animation: orbit 14s linear infinite;
-  }
-  .orbit-ring-2 {
-    inset: -65px;
-    border-color: rgba(255,107,0,.12);
-    animation-duration: 20s;
-    animation-direction: reverse;
-  }
-  @keyframes orbit { to { transform:rotate(360deg); } }
-
-  .orbit-badge {
-    position: absolute;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    backdrop-filter: blur(12px);
-    border-radius: 30px;
-    padding: 6px 13px;
-    font-size: 11px; font-weight: 700;
-    font-family: var(--font-mono);
-    z-index: 2;
-    box-shadow: var(--shadow);
-    white-space: nowrap;
-  }
-  .orbit-badge.tl { top: 5%; left: -5%; animation: float-a 4s ease-in-out infinite; }
-  .orbit-badge.tr { top: 5%; right: -10%; animation: float-b 5s ease-in-out infinite .7s; }
-  .orbit-badge.bl { bottom: 12%; left: -8%; animation: float-c 4.5s ease-in-out infinite .3s; }
-  .orbit-badge.br { bottom: 12%; right: -5%; animation: float-d 5s ease-in-out infinite 1s; }
-  @keyframes float-a { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
-  @keyframes float-b { 0%,100%{transform:translateY(-5px);} 50%{transform:translateY(5px);} }
-  @keyframes float-c { 0%,100%{transform:translateY(4px);} 50%{transform:translateY(-6px);} }
-  @keyframes float-d { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
-
-  /* Stat cards */
-  .stat-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 18px 12px;
-    text-align: center;
-    transition: all var(--t);
-    position: relative;
-    overflow: hidden;
-  }
-  .stat-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-    opacity: 0;
-    transition: opacity var(--t);
-  }
-  .stat-card:hover::before { opacity: 1; }
-  .stat-card:hover { border-color: var(--border-h); transform: translateY(-4px); box-shadow: var(--glow-cyan); }
-  .stat-num { font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; color: var(--cyan); line-height: 1; }
-  .stat-label { font-size: 10px; color: var(--text-muted); margin-top: 4px; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; }
-
-  /* Scroll indicator */
-  .scroll-indicator {
-    position: absolute; bottom: 28px; left: 50%;
-    transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 6px;
-  }
-  .scroll-mouse {
-    width: 24px; height: 38px;
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    display: flex; justify-content: center; padding-top: 6px;
-  }
-  .scroll-dot-m {
-    width: 3px; height: 7px;
-    background: var(--cyan);
-    border-radius: 2px;
-    animation: scr 2s ease infinite;
-    box-shadow: 0 0 6px var(--cyan);
-  }
-  @keyframes scr { 0%{transform:translateY(0);opacity:1;} 100%{transform:translateY(14px);opacity:0;} }
-  .scroll-label { font-family: var(--font-mono); font-size: 9px; color: var(--text-muted); letter-spacing: .1em; }
-
-  /* ═══════════════════════════════════════
-     SECTIONS COMMON
-     ═══════════════════════════════════════ */
-  .section-pad { padding: 100px 0; }
-  .section-alt { background: var(--bg-alt); }
-  .section-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
-    letter-spacing: .12em; text-transform: uppercase;
-    color: var(--cyan);
-    background: rgba(0,212,255,.07);
-    border: 1px solid rgba(0,212,255,.2);
-    padding: 4px 12px; border-radius: 4px;
-    margin-bottom: 14px;
-  }
-  .section-tag::before {
-    content: '//';
-    opacity: .5;
-    font-size: 10px;
-  }
-  .section-heading {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -.02em;
-  }
-  .section-sub { font-size: 1rem; color: var(--text-muted); max-width: 500px; }
-
-  /* Reveal */
-  .reveal-section { opacity:0; transform:translateY(40px); transition:opacity .75s ease, transform .75s ease; }
-  .reveal-section.visible { opacity:1; transform:translateY(0); }
-  .reveal-item { opacity:0; transform:translateX(-24px); transition:opacity .6s ease, transform .6s ease; }
-  .reveal-item.visible { opacity:1; transform:translateX(0); }
-  .divider { height:1px; background:var(--border); }
-
-  /* ═══════════════════════════════════════
-     ABOUT
-     ═══════════════════════════════════════ */
-  .about-text { color:var(--text-muted); line-height:1.9; }
-  .about-text strong { color:var(--text); font-weight:700; }
-
-  .highlight-chip {
-    display:flex; align-items:center; gap:10px;
-    background:var(--card-bg);
-    border:1px solid var(--border);
-    border-radius:var(--radius-sm);
-    padding:12px 16px;
-    transition:all var(--t);
-    text-decoration:none; color:var(--text);
-  }
-  .highlight-chip:hover {
-    border-color:var(--cyan);
-    background:rgba(0,212,255,.04);
-    transform:translateX(6px);
-    box-shadow:0 4px 20px rgba(0,212,255,.1);
-  }
-  .chip-icon { font-size:22px; flex-shrink:0; }
-  .chip-label { font-size:13px; font-weight:700; font-family:var(--font-display); letter-spacing:.02em; }
-  .chip-sub { font-size:11px; color:var(--text-muted); margin-top:1px; }
-
-  .about-card {
-    background:var(--card-bg);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:28px;
-    position:sticky; top:90px;
-    backdrop-filter:blur(16px);
-  }
-  .info-row {
-    display:flex; justify-content:space-between; align-items:center;
-    font-size:13.5px; gap:8px;
-  }
-  .info-label { color:var(--text-muted); font-family:var(--font-mono); font-size:11.5px; }
-  .info-value { font-weight:700; text-align:right; font-size:12.5px; }
-  .value-tag {
-    display:inline-block; padding:3px 9px;
-    background:rgba(0,212,255,.07);
-    border:1px solid rgba(0,212,255,.18);
-    border-radius:5px; font-size:11px; color:var(--cyan); font-weight:700;
-    font-family:var(--font-mono);
-  }
-
-  /* ═══════════════════════════════════════
-     SKILLS
-     ═══════════════════════════════════════ */
-  .skill-tab {
-    padding:8px 18px;
-    border-radius:5px;
-    border:1px solid var(--border);
-    background:transparent;
-    color:var(--text-muted);
-    font-family:var(--font-display); font-size:12.5px; font-weight:700;
-    letter-spacing:.05em; text-transform:uppercase;
-    cursor:pointer; transition:all var(--t);
-  }
-  .skill-tab:hover { color:var(--text); border-color:var(--cyan); }
-  .skill-tab.active {
-    background:var(--cyan); border-color:var(--cyan); color:#000;
-    box-shadow:var(--glow-cyan);
-  }
-  .skill-panel { display:none; }
-  .skill-panel.active { display:block; animation:fade-in .4s ease; }
-  @keyframes fade-in { from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:translateY(0);} }
-
-  .skill-card {
-    background:var(--card-bg);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:22px;
-    transition:all var(--t);
-    cursor:default;
-    position:relative; overflow:hidden;
-  }
-  .skill-card::before {
-    content:'';
-    position:absolute; bottom:0; left:0; right:0; height:2px;
-    background:linear-gradient(90deg, var(--cyan), var(--orange));
-    transform:scaleX(0); transform-origin:left;
-    transition:transform .4s ease;
-  }
-  .skill-card:hover::before { transform:scaleX(1); }
-  .skill-card:hover {
-    border-color:var(--border-h);
-    transform:translateY(-5px);
-    box-shadow:0 12px 40px rgba(0,212,255,.12);
-  }
-  .skill-icon { font-size:26px; margin-bottom:10px; }
-  .skill-name { font-family:var(--font-display); font-weight:800; font-size:14px; margin-bottom:5px; letter-spacing:.01em; }
-  .skill-desc { font-size:11.5px; color:var(--text-muted); line-height:1.55; }
-
-  .skill-level {
-    display:flex; align-items:center; gap:4px; margin-top:10px;
-  }
-  .skill-pip {
-    height:3px; flex:1; border-radius:2px;
-    background:var(--border);
-    transition:background .4s ease;
-  }
-  .skill-pip.active { background:var(--cyan); box-shadow:0 0 6px var(--cyan); }
-  .skill-pip.semi { background:var(--orange); box-shadow:0 0 6px var(--orange); }
-
-  /* ═══════════════════════════════════════
-     PROJECTS
-     ═══════════════════════════════════════ */
-  .filter-btn {
-    padding:6px 16px; border-radius:4px;
-    border:1px solid var(--border); background:transparent;
-    color:var(--text-muted);
-    font-family:var(--font-display); font-size:12px; font-weight:700;
-    letter-spacing:.05em; text-transform:uppercase;
-    cursor:pointer; transition:all var(--t);
-  }
-  .filter-btn:hover { color:var(--text); border-color:var(--cyan); }
-  .filter-btn.active { background:var(--cyan); border-color:var(--cyan); color:#000; }
-
-  .projects-grid { display:grid; grid-template-columns:1fr; gap:32px; }
-  .project-card {
-    background:var(--card-bg);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    overflow:hidden; display:grid;
-    grid-template-columns:minmax(220px,35%) 1fr;
-    min-height:400px;
-    transition:all var(--t);
-    position:relative;
-  }
-  .project-card::after {
-    content:'';
-    position:absolute; inset:0;
-    border-radius:var(--radius);
-    border:1px solid transparent;
-    background:linear-gradient(135deg, var(--cyan), var(--orange)) border-box;
-    -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite:destination-out;
-    mask-composite:exclude;
-    opacity:0; transition:opacity .4s;
-  }
-  .project-card:hover::after { opacity:.6; }
-  .project-card:hover {
-    transform:translateY(-7px);
-    box-shadow:0 24px 60px rgba(0,212,255,.12), 0 8px 30px rgba(255,107,0,.06);
-    border-color:var(--border-h);
-  }
-  .project-card.hidden { display:none; }
-
-  .project-visual {
-    position:relative; overflow:hidden;
-    background:var(--bg-alt);
-    display:flex; align-items:center; justify-content:center;
-    min-height:400px;
-  }
-  .project-visual img {
-    width:100%; height:100%;
-    object-fit:cover;
-    transition:transform .6s ease;
-    display:none;
-  }
-  .project-card:hover .project-visual img { transform:scale(1.05); }
-  .project-visual-fallback {
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:12px; padding:24px;
-  }
-  .project-visual-icon { font-size:56px; filter:drop-shadow(0 0 16px rgba(0,212,255,.4)); }
-  .project-visual-label {
-    font-family:var(--font-mono); font-size:10px;
-    color:var(--text-muted); letter-spacing:.1em; text-transform:uppercase;
-  }
-  .proj-circuit-overlay {
-    position:absolute; inset:0; pointer-events:none; overflow:hidden; opacity:.12;
-  }
-  .project-body {
-    padding:clamp(28px, 5vw, 60px);
-    display:flex; flex-direction:column; justify-content:center;
-  }
-  .project-number {
-    font-family:var(--font-mono); font-size:11px;
-    color:var(--text-muted); letter-spacing:.12em;
-    margin-bottom:8px;
-  }
-  .project-cat {
-    display:inline-block; font-size:10px; font-weight:800;
-    letter-spacing:.08em; text-transform:uppercase;
-    padding:3px 10px; border-radius:4px; margin-bottom:12px;
-  }
-  .project-cat.iot { background:rgba(0,212,255,.1); color:var(--cyan); border:1px solid rgba(0,212,255,.2); }
-  .project-cat.auto { background:rgba(0,255,136,.08); color:var(--green); border:1px solid rgba(0,255,136,.2); }
-  .project-cat.sec { background:rgba(255,107,0,.1); color:var(--orange); border:1px solid rgba(255,107,0,.2); }
-
-  .project-title {
-    font-family:var(--font-display); font-weight:900;
-    font-size:clamp(1.8rem, 4vw, 3.5rem);
-    line-height:.97; letter-spacing:-.04em;
-    margin-bottom:16px;
-  }
-  .project-desc { font-size:.95rem; color:var(--text-muted); line-height:1.75; margin-bottom:20px; max-width:60ch; }
-  .project-tags { display:flex; flex-wrap:wrap; gap:6px; }
-  .tag {
-    padding:3px 10px;
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:4px;
-    font-family:var(--font-mono); font-size:10.5px; font-weight:500;
-    color:var(--text-muted);
-    transition:all var(--t);
-  }
-  .tag:hover { border-color:var(--cyan); color:var(--cyan); }
-
-  /* ═══════════════════════════════════════
-     TIMELINE / EXPERIENCE
-     ═══════════════════════════════════════ */
-  .timeline { position:relative; padding-left:64px; }
-  .timeline::before {
-    content:''; position:absolute;
-    left:27px; top:8px; bottom:8px; width:2px;
-    background:linear-gradient(to bottom, var(--cyan), var(--orange), var(--cyan));
-    border-radius:2px;
-    box-shadow:0 0 12px rgba(0,212,255,.3);
-  }
-  .timeline-item { position:relative; margin-bottom:52px; }
-  .timeline-item:last-child { margin-bottom:0; }
-  .timeline-dot {
-    position:absolute; left:-50px; top:0;
-    width:40px; height:40px;
-    background:var(--bg);
-    border:2px solid var(--cyan);
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    font-family:var(--font-mono); font-size:11px; font-weight:700;
-    color:var(--cyan);
-    box-shadow:var(--glow-cyan);
-    z-index:1;
-  }
-  .timeline-content {
-    background:var(--card-bg);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:24px 28px;
-    transition:all var(--t);
-  }
-  .timeline-content:hover {
-    border-color:var(--border-h);
-    transform:translateX(8px);
-    box-shadow:0 8px 32px rgba(0,212,255,.1);
-  }
-  .timeline-period {
-    font-family:var(--font-mono); font-size:11px; color:var(--cyan);
-    letter-spacing:.08em; margin-bottom:6px; font-weight:700;
-  }
-  .timeline-title { font-family:var(--font-display); font-size:1.05rem; font-weight:800; margin-bottom:8px; }
-  .timeline-desc { font-size:13.5px; color:var(--text-muted); line-height:1.65; margin-bottom:12px; }
-
-  /* ═══════════════════════════════════════
-     GITHUB
-     ═══════════════════════════════════════ */
-  .github-wrap {
-    display:flex; gap:12px; flex-wrap:wrap;
-  }
-  .github-input-wrap {
-    display:flex; align-items:center; gap:10px;
-    background:var(--card-bg); border:1.5px solid var(--border);
-    border-radius:var(--radius-sm); padding:10px 16px;
-    flex:1; min-width:240px; transition:border-color var(--t);
-  }
-  .github-input-wrap:focus-within { border-color:var(--cyan); box-shadow:0 0 0 3px rgba(0,212,255,.1); }
-  .github-input {
-    background:transparent; border:none; outline:none;
-    color:var(--text); font-family:var(--font-mono); font-size:13.5px; flex:1;
-  }
-  .github-icon { color:var(--text-muted); font-size:16px; }
-
-  .repos-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:14px; }
-  .repo-card {
-    background:var(--card-bg); border:1px solid var(--border);
-    border-radius:var(--radius); padding:20px;
-    transition:all var(--t);
-  }
-  .repo-card:hover {
-    border-color:var(--border-h); transform:translateY(-4px);
-    box-shadow:0 12px 32px rgba(0,212,255,.1);
-  }
-  .repo-header { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
-  .repo-icon { font-size:15px; opacity:.6; }
-  .repo-name { font-family:var(--font-mono); font-size:13px; font-weight:700; color:var(--cyan); }
-  .repo-desc { font-size:12px; color:var(--text-muted); line-height:1.55; margin-bottom:14px; }
-  .repo-footer { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-  .repo-lang { font-family:var(--font-mono); font-size:11px; font-weight:600; color:var(--text-muted); display:flex; align-items:center; gap:5px; }
-  .repo-stars { font-size:11px; color:var(--text-muted); margin-left:auto; }
-  .repo-link {
-    font-family:var(--font-mono); font-size:11px; font-weight:700;
-    color:var(--cyan); text-decoration:none;
-    padding:2px 9px; border:1px solid rgba(0,212,255,.3); border-radius:4px;
-    transition:all var(--t);
-  }
-  .repo-link:hover { background:var(--cyan); color:#000; }
-
-  .github-loading { display:flex; flex-direction:column; align-items:center; padding:48px; }
-  .loading-dots { display:flex; gap:8px; }
-  .loading-dots span {
-    width:8px; height:8px; background:var(--cyan); border-radius:50%;
-    animation:bounce-d 1s ease infinite; box-shadow:0 0 8px var(--cyan);
-  }
-  .loading-dots span:nth-child(2){animation-delay:.2s;}
-  .loading-dots span:nth-child(3){animation-delay:.4s;}
-  @keyframes bounce-d { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
-  .github-error {
-    background:rgba(255,71,87,.07); border:1px solid rgba(255,71,87,.2);
-    border-radius:var(--radius-sm); padding:12px 16px;
-    color:var(--red); font-size:13px; font-family:var(--font-mono);
-  }
-
-  /* ═══════════════════════════════════════
-     CONTACT
-     ═══════════════════════════════════════ */
-  .contact-cta {
-    background:linear-gradient(135deg, rgba(0,212,255,.07), rgba(255,107,0,.04));
-    border:1px solid rgba(0,212,255,.15);
-    border-radius:var(--radius); padding:24px;
-  }
-  .contact-link {
-    display:flex; align-items:center; gap:14px;
-    background:var(--card-bg); border:1px solid var(--border);
-    border-radius:var(--radius); padding:16px 20px;
-    text-decoration:none; color:var(--text); transition:all var(--t);
-  }
-  .contact-link:hover { border-color:var(--cyan); transform:translateX(6px); box-shadow:0 4px 20px rgba(0,212,255,.1); }
-  .contact-icon { font-size:20px; }
-
-  .contact-form-card {
-    background:var(--card-bg); border:1px solid var(--border);
-    border-radius:var(--radius); padding:32px;
-  }
-  .form-label {
-    font-family:var(--font-mono); font-size:11px; font-weight:700;
-    color:var(--text-muted); letter-spacing:.08em; text-transform:uppercase;
-    margin-bottom:6px; display:block;
-  }
-  .form-input {
-    width:100%; background:var(--surface); border:1.5px solid var(--border);
-    border-radius:var(--radius-sm); padding:11px 14px;
-    color:var(--text); font-family:var(--font-body); font-size:14px;
-    outline:none; transition:border-color var(--t);
-  }
-  .form-input:focus { border-color:var(--cyan); box-shadow:0 0 0 3px rgba(0,212,255,.1); }
-  .form-input::placeholder { color:var(--text-muted); opacity:.5; }
-  textarea.form-input { resize:vertical; min-height:110px; }
-  select.form-input { cursor:pointer; }
-
-  .form-success {
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    padding:52px 24px; gap:14px; text-align:center;
-  }
-
-  /* ═══════════════════════════════════════
-     FOOTER
-     ═══════════════════════════════════════ */
-  .footer { border-top:1px solid var(--border); background:var(--bg); }
-  .footer-link { font-size:12.5px; color:var(--text-muted); text-decoration:none; transition:color var(--t); }
-  .footer-link:hover { color:var(--cyan); }
-
-  /* Back to top */
-  .back-to-top {
-    position:fixed; bottom:28px; right:28px;
-    width:44px; height:44px; background:var(--bg);
-    border:1.5px solid var(--cyan); color:var(--cyan);
-    border-radius:var(--radius-sm); font-size:18px;
-    cursor:pointer; z-index:100; display:flex;
-    align-items:center; justify-content:center;
-    transition:all var(--t); box-shadow:var(--glow-cyan);
-  }
-  .back-to-top:hover { background:var(--cyan); color:#000; transform:translateY(-4px); }
-  .back-to-top.show { animation:pop-in .3s ease; }
-  @keyframes pop-in { from{transform:scale(0) rotate(180deg);} to{transform:scale(1);} }
-  .hidden { display:none !important; }
-
-  /* ═══════════════════════════════════════
-     CHATBOT
-     ═══════════════════════════════════════ */
-  .chatbot-btn {
-    position:fixed; bottom:24px; right:24px; z-index:9999;
-    width:52px; height:52px; border-radius:50%;
-    background:var(--bg); border:1.5px solid var(--cyan);
-    cursor:pointer; display:flex; align-items:center; justify-content:center;
-    font-size:22px; transition:all var(--t);
-    box-shadow:var(--glow-cyan);
-  }
-  .chatbot-btn:hover { background:var(--cyan); transform:scale(1.1); }
-
-  /* ═══════════════════════════════════════
-     RESPONSIVE
-     ═══════════════════════════════════════ */
-  @media (max-width:768px) {
-    .section-pad { padding:64px 0; }
-    .project-card { grid-template-columns:1fr; min-height:0; }
-    .project-visual { min-height:240px; height:240px; }
-    .project-body { padding:24px; }
-    .timeline { padding-left:46px; }
-    .timeline::before { left:19px; }
-    .timeline-dot { left:-40px; width:32px; height:32px; font-size:10px; }
-    .hero-name { font-size:2.8rem; }
-    .photo-outer { width:min(100%, 300px); }
-    .orbit-badge.tl,.orbit-badge.tr { display:none; }
-    .contact-form-card { padding:20px; }
-    .back-to-top { bottom:18px; right:18px; }
-  }
-  @media (max-width:480px) {
-    .projects-grid { gap:20px; }
-    .repos-grid { grid-template-columns:1fr; }
-    .stat-num { font-size:1.4rem; }
-  }
-
-  /* Image modal */
-  .image-modal { position:fixed; inset:0; z-index:11000; display:flex; align-items:center; justify-content:center; padding:20px; }
-  .image-modal-overlay { position:absolute; inset:0; background:rgba(0,0,0,.88); backdrop-filter:blur(6px); cursor:pointer; }
-  .image-modal-content { position:relative; background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; max-width:90vw; max-height:90vh; box-shadow:0 30px 80px rgba(0,0,0,.6); }
-  .image-modal-close { position:absolute; top:14px; right:14px; background:rgba(0,0,0,.7); border:none; color:#fff; font-size:22px; width:38px; height:38px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:1; transition:all var(--t); }
-  .image-modal-close:hover { background:var(--red); }
-  .image-modal-img { display:block; width:100%; height:auto; max-height:calc(90vh - 60px); object-fit:contain; }
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
 </head>
 <body>
 
@@ -1045,7 +66,7 @@
       <div>
         <div class="boot-badge">
           <span class="boot-dot"></span>
-          <span>SYSTEM ONLINE · CUM LAUDE GRADUATE 2026</span>
+          <span>QA PIPELINE ONLINE · AI QA Engineer</span>
         </div>
 
         <h1 class="hero-name mb-2">
@@ -1061,29 +82,46 @@
           <span class="cursor"></span>
         </div>
 
-        <p class="hero-desc">
-          BIT Computer Technology student at Batangas State University. I build <strong style="color:var(--cyan);">Arduino-based IoT systems</strong>, automated smart devices, and real-world prototypes — from intelligent waste bins to safety monitoring systems. Cum Laude, Dean's Lister, and class leader.
-        </p>
+        <p class="hero-desc" style="text-align: justify;">
+  I help teams ship reliable AI-driven software through structured manual testing, Playwright automation, Python-based validation, API checks, and clear defect reporting. My strength is turning messy product behavior into repeatable test cases, clean evidence, and practical quality improvements recruiters can recognize immediately.
+</p>
 
         <div class="flex flex-wrap gap-3 mb-10">
-          <a href="#projects" class="btn-primary">View Projects ↗</a>
+          <a href="#projects" class="btn-primary">View QA Work ↗</a>
           <a href="assets/resume.pdf" download class="btn-secondary">Download CV</a>
           <a href="#contact"  class="btn-ghost">Let's Talk</a>
         </div>
 
         <div class="tech-badges flex flex-wrap gap-2">
-          <span class="tech-badge"><span class="dot"></span>Arduino</span>
-          <span class="tech-badge"><span class="dot"></span>C / C++</span>
-          <span class="tech-badge"><span class="dot" style="background:var(--orange)"></span>IoT Systems</span>
-          <span class="tech-badge"><span class="dot"></span>Sensors</span>
+          <span class="tech-badge"><span class="dot"></span>Playwright</span>
+          <span class="tech-badge"><span class="dot" style="background:var(--green)"></span>Python</span>
+          <span class="tech-badge"><span class="dot" style="background:var(--orange)"></span>API Testing</span>
+          <span class="tech-badge"><span class="dot"></span>AI Data QA</span>
+          <span class="tech-badge"><span class="dot"></span>Test Cases</span>
           <span class="tech-badge"><span class="dot" style="background:var(--green)"></span>Leadership</span>
-          <span class="tech-badge"><span class="dot"></span>Canva</span>
-          <span class="tech-badge"><span class="dot" style="background:var(--orange)"></span>MS Office</span>
+          <span class="tech-badge"><span class="dot" style="background:var(--orange)"></span>Bug Reports</span>
         </div>
       </div>
 
       <!-- Right: photo + stats -->
       <div class="flex flex-col items-center lg:items-start gap-8">
+        <div class="qa-command-panel">
+          <div class="qa-panel-bar">
+            <div class="qa-window-dots"><span></span><span></span><span></span></div>
+            <div class="qa-panel-title">automation.spec.ts</div>
+          </div>
+          <div class="qa-panel-body">
+            <div class="qa-code-line"><span class="ln">01</span><span><span class="kw">test</span>(<span class="str">'critical user flow'</span>, <span class="kw">async</span> ({ page }) =&gt; {</span></div>
+            <div class="qa-code-line"><span class="ln">02</span><span>&nbsp;&nbsp;<span class="kw">await</span> page.<span class="fn">goto</span>(<span class="str">'/production'</span>)</span></div>
+            <div class="qa-code-line"><span class="ln">03</span><span>&nbsp;&nbsp;<span class="kw">await</span> expect(page).<span class="fn">toHaveNoBrokenUI</span>()</span></div>
+            <div class="qa-code-line"><span class="ln">04</span><span>})</span></div>
+            <div class="qa-status-grid">
+              <div class="qa-status"><strong>UI</strong><span>Playwright</span></div>
+              <div class="qa-status"><strong>API</strong><span>Validation</span></div>
+              <div class="qa-status"><strong>AI</strong><span>Data QA</span></div>
+            </div>
+          </div>
+        </div>
         <div class="photo-outer mx-auto lg:mx-0">
           <!-- Animated ring SVG -->
           <svg class="photo-ring-svg" viewBox="0 0 440 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);">
@@ -1107,28 +145,28 @@
 
           <!-- Floating orbit badges -->
           <div class="orbit-badge tl">
-            <span class="text-cyan">⚡</span> Arduino Dev
+            <span class="text-cyan">⚡</span> Playwright QA
           </div>
           <div class="orbit-badge tr">
-            <span style="color:var(--green)">🎓</span> Cum Laude
+            <span style="color:var(--green)">🎓</span> Software QA Analyst
           </div>
           <div class="orbit-badge bl">
-            <span class="text-orange">📡</span> IoT Builder
+            <span class="text-orange">📡</span> Python Tester
           </div>
           <div class="orbit-badge br">
-            <span style="color:var(--green)">✓</span> Class Pres.
+            <span style="color:var(--green)">✓</span> AI Data QA
           </div>
         </div>
 
         <!-- Stats -->
         <div class="stats-row grid grid-cols-3 gap-3 w-full max-w-xs">
           <div class="stat-card">
-            <div class="stat-num font-display">3+</div>
-            <div class="stat-label">Projects</div>
+            <div class="stat-num font-display">8+</div>
+            <div class="stat-label">QA Skills</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num font-display">4+</div>
-            <div class="stat-label">Roles</div>
+            <div class="stat-num font-display">3+</div>
+            <div class="stat-label">Projects</div>
           </div>
           <div class="stat-card">
             <div class="stat-num font-display">2026</div>
@@ -1155,38 +193,41 @@
     <div class="grid lg:grid-cols-5 gap-14 items-start">
       <div class="lg:col-span-3">
         <h2 class="section-heading mb-6">
-          A student engineer building<br>
-          <span class="grad-mix">smart systems and real impact</span>
-        </h2>
-        <div class="about-text space-y-5">
-          <p>I'm pursuing a <strong>Bachelor of Industrial Technology major in Computer Technology</strong> at Batangas State University — graduating as a <strong>Cum Laude</strong> and <strong>Dean's Lister (2023–2024)</strong>. I combine academic excellence with hands-on skills in embedded systems and IoT development.</p>
-          <p>My passion is building <strong>Arduino-based prototypes and automated systems</strong> that solve real-world problems — from a sensor-triggered smart waste bin to a coin-operated rice vending machine and an integrated smoke-alarm CCTV system.</p>
-          <p>Beyond the lab, I lead as <strong>Class President</strong>, <strong>Organization Officer</strong>, and <strong>CPET Director of TECHLINK</strong> — coordinating events, mentoring peers, and bridging students with technology opportunities.</p>
-        </div>
+  <span class="grad-mix">AI QA Engineer | Automation • Testing • Reliability</span>
+</h2>
+        <div class="about-text space-y-5" style="text-align: justify;">
+          <p>I am a <strong>Computer Engineering Technology</strong> graduate from Batangas State University - The National Engineering University, recognized as a <strong>Cum Laude</strong>. I specialize in <strong>Software Quality Assurance</strong> with skills in Playwright automation, Python validation, data quality review, and AI-assisted testing workflows.</p>
+
+          <p>I am passionate about ensuring software reliability through structured testing, manual and automated QA processes, and improving system quality using modern tools and AI-driven approaches.</p>
+
+          <p>Alongside my software QA focus, I have experience in building <strong>Arduino-based prototypes and automated systems</strong> that solve real-world problems — from a sensor-triggered smart waste bin to a coin-operated rice vending machine and an integrated smoke-alarm CCTV system.</p>
+
+          <p>Beyond the technical field, I served as <strong>Class President</strong>, <strong>4th Year Representative</strong>, and <strong>CPET Director of TECH LINK </strong> — coordinating events, mentoring peers, and bridging students with technology opportunities.</p> 
+          </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-8">
           <div class="highlight-chip">
-            <div class="chip-icon">🔧</div>
-            <div><div class="chip-label">Arduino</div><div class="chip-sub">C / C++ Programming</div></div>
+            <div class="chip-icon">🎭</div>
+            <div><div class="chip-label">Playwright</div><div class="chip-sub">E2E Automation</div></div>
           </div>
           <div class="highlight-chip">
-            <div class="chip-icon">📡</div>
-            <div><div class="chip-label">IoT Dev</div><div class="chip-sub">Connected Devices</div></div>
+            <div class="chip-icon">🐍</div>
+            <div><div class="chip-label">Python QA</div><div class="chip-sub">Validation Scripts</div></div>
           </div>
           <div class="highlight-chip">
-            <div class="chip-icon">⚡</div>
-            <div><div class="chip-label">Circuits</div><div class="chip-sub">Wiring & Prototyping</div></div>
+            <div class="chip-icon">🤖</div>
+            <div><div class="chip-label">AI Data QA</div><div class="chip-sub">Output Review</div></div>
           </div>
           <div class="highlight-chip">
             <div class="chip-icon">👨‍💼</div>
             <div><div class="chip-label">Leadership</div><div class="chip-sub">Class President</div></div>
           </div>
           <div class="highlight-chip">
-            <div class="chip-icon">🎨</div>
-            <div><div class="chip-label">Design</div><div class="chip-sub">Canva &amp; Office</div></div>
+            <div class="chip-icon">🧾</div>
+            <div><div class="chip-label">Documentation</div><div class="chip-sub">Tests &amp; Reports</div></div>
           </div>
           <div class="highlight-chip">
-            <div class="chip-icon">💻</div>
-            <div><div class="chip-label">Tech Lit.</div><div class="chip-sub">Systems &amp; Tools</div></div>
+            <div class="chip-icon">🔧</div>
+            <div><div class="chip-label">IoT Builds</div><div class="chip-sub">Arduino Systems</div></div>
           </div>
         </div>
       </div>
@@ -1207,9 +248,9 @@
           <div class="divider my-5"></div>
           <p style="font-family:var(--font-mono);font-size:11px;color:var(--cyan);margin-bottom:12px;">// CORE_VALUES[]</p>
           <div class="flex flex-wrap gap-2">
-            <span class="value-tag">Innovation</span>
-            <span class="value-tag">Leadership</span>
-            <span class="value-tag">Teamwork</span>
+            <span class="value-tag">Quality Mindset</span>
+            <span class="value-tag">Clear Evidence</span>
+            <span class="value-tag">Automation</span>
             <span class="value-tag">Problem-solving</span>
             <span class="value-tag">Continuous Learning</span>
           </div>
@@ -1228,18 +269,62 @@
   <div class="max-w-7xl mx-auto px-6">
     <div class="section-tag">Skill Set</div>
     <h2 class="section-heading mb-2">What I bring to the table</h2>
-    <p class="section-sub mb-10">Technical depth, leadership experience, and real project work.</p>
+    <p class="section-sub mb-10">Automation-ready QA skills, AI data validation, technical documentation, and real project work.</p>
 
     <div class="flex flex-wrap gap-2 mb-8">
-      <button class="skill-tab active" data-tab="arduino">⚙️ Arduino &amp; IoT</button>
+      <button class="skill-tab active" data-tab="qa">🧪 AI QA &amp; Automation</button>
+      <button class="skill-tab" data-tab="arduino">⚙️ Arduino &amp; IoT</button>
       <button class="skill-tab" data-tab="office">📊 MS Office</button>
       <button class="skill-tab" data-tab="design">🎨 Design</button>
       <button class="skill-tab" data-tab="leadership">🎯 Leadership</button>
       <button class="skill-tab" data-tab="technical">🔌 Technical</button>
     </div>
 
+    <!-- AI QA & Automation -->
+    <div class="skill-panel active" data-panel="qa">
+      <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Recruiter-facing QA stack for reliable AI and web products</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="skill-card">
+          <div class="skill-icon">🎭</div>
+          <div class="skill-name">Playwright Automation</div>
+          <div class="skill-desc">End-to-end browser tests, locator strategy, regression flows, screenshots, traces, and repeatable defect evidence.</div>
+          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🐍</div>
+          <div class="skill-name">Python QA Utilities</div>
+          <div class="skill-desc">Data validation scripts, CSV/JSON checks, test data preparation, and lightweight automation helpers.</div>
+          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div><div class="skill-pip"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🤖</div>
+          <div class="skill-name">AI Data Quality</div>
+          <div class="skill-desc">Prompt output review, labeling consistency, edge-case spotting, hallucination checks, and result scoring.</div>
+          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🔌</div>
+          <div class="skill-name">API &amp; Integration Testing</div>
+          <div class="skill-desc">Request/response validation, status checks, payload review, and integration bug isolation.</div>
+          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div><div class="skill-pip"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🧾</div>
+          <div class="skill-name">Test Documentation</div>
+          <div class="skill-desc">Test cases, bug reports, reproduction steps, UAT notes, test summaries, and user manuals.</div>
+          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div></div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🧠</div>
+          <div class="skill-name">AI-Assisted QA Workflow</div>
+          <div class="skill-desc">Using ChatGPT, Codex, Gemini, and Google AI Studio to speed up test planning and coverage analysis.</div>
+          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Arduino & IoT -->
-    <div class="skill-panel active" data-panel="arduino">
+    <div class="skill-panel" data-panel="arduino">
       <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Embedded systems and connected devices</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div class="skill-card">
@@ -1409,10 +494,11 @@
   <div class="max-w-7xl mx-auto px-6">
     <div class="section-tag">Featured Projects</div>
     <h2 class="section-heading mb-2">Work that speaks for itself</h2>
-    <p class="section-sub mb-8">Real Arduino systems. Real components. Real-world impact.</p>
+    <p class="section-sub mb-8">QA automation, AI data validation, and real technical systems with clear testing evidence.</p>
 
     <div class="flex flex-wrap gap-2 mb-10">
       <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="qa">QA Automation</button>
       <button class="filter-btn" data-filter="iot">IoT Systems</button>
       <button class="filter-btn" data-filter="arduino">Arduino</button>
       <button class="filter-btn" data-filter="automation">Automation</button>
@@ -1420,8 +506,44 @@
 
     <div class="projects-grid" id="projectsGrid">
 
+      <!-- Project 0: QA Automation Lab -->
+      <div class="project-card" data-category="qa">
+        <div class="project-visual" style="background:linear-gradient(135deg,#03111c,#062a32);">
+          <div class="project-code-visual">
+            <div class="code-visual-head"><span>qa_pipeline.py</span><span>PASS</span></div>
+            <div class="code-visual-body">
+              <div><span class="kw">from</span> playwright.sync_api <span class="kw">import</span> expect</div>
+              <div><span class="kw">def</span> <span class="fn">test_ai_output_quality</span>(page):</div>
+              <div>&nbsp;&nbsp;page.<span class="fn">goto</span>(<span class="str">'/chat'</span>)</div>
+              <div>&nbsp;&nbsp;expect(page.locator(<span class="str">'.result'</span>)).<span class="fn">to_be_visible</span>()</div>
+              <div class="code-visual-pass">✓ UI flow · API response · data quality checked</div>
+            </div>
+          </div>
+          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 90 H92 V54 H160 V110 H250" stroke="#00D4FF" stroke-width="1" fill="none"/>
+            <path d="M44 318 H118 V260 H190 V304 H264" stroke="#00FF88" stroke-width="1" fill="none"/>
+            <circle cx="92" cy="90" r="4" fill="#00D4FF"/>
+            <circle cx="160" cy="54" r="4" fill="#00D4FF"/>
+            <circle cx="190" cy="304" r="4" fill="#00FF88"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-number">// QA_CASE_STUDY_00</div>
+          <span class="project-cat qa">QA Automation</span>
+          <h3 class="project-title grad-cyan">AI QA Automation<br>Test Lab</h3>
+          <p class="project-desc">A recruiter-focused QA case study concept showing how I test AI and web products: Playwright browser automation, Python data checks, API response validation, defect evidence, and concise test reporting.</p>
+          <div class="project-tags">
+            <span class="tag">Playwright</span>
+            <span class="tag">Python</span>
+            <span class="tag">AI Data QA</span>
+            <span class="tag">API Testing</span>
+            <span class="tag">Bug Reports</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Project 1: Smart Bin -->
-      <div class="project-card" data-category="iot">
+      <div class="project-card" data-category="iot arduino automation">
         <div class="project-visual" style="background:linear-gradient(135deg,#040d1e,#0a2040);">
           <img src="src/smartbin/smart-bin.png" alt="Smart Bin"/>
           <div class="project-visual-fallback">
@@ -1456,7 +578,7 @@
       </div>
 
       <!-- Project 2: Rice Vending -->
-      <div class="project-card" data-category="iot">
+      <div class="project-card" data-category="iot arduino automation">
         <div class="project-visual" style="background:linear-gradient(135deg,#071a10,#0f3020);">
           <img src="src/rice_vending_machine/ricevendingmachine.png" alt="Rice Vending Machine"/>
           <div class="project-visual-fallback">
@@ -1487,7 +609,7 @@
       </div>
 
       <!-- Project 3: Smoke Alarm -->
-      <div class="project-card" data-category="iot">
+      <div class="project-card" data-category="iot arduino automation">
         <div class="project-visual" style="background:linear-gradient(135deg,#140818,#2a1040);">
           <img src="src/smokealarmsystem/smokealarm.png" alt="Smoke Alarm CCTV"/>
           <div class="project-visual-fallback">
@@ -1594,6 +716,7 @@
     </div>
     <div id="reposGrid" class="repos-grid"></div>
     <div id="demoRepos" class="repos-grid">
+      <div class="repo-card"><div class="repo-header"><span class="repo-icon">📁</span><h3 class="repo-name">ai-qa-playwright-lab</h3></div><p class="repo-desc">Playwright and Python QA demo for UI flows, API checks, and AI output validation evidence.</p><div class="repo-footer"><span class="repo-lang"><span style="width:10px;height:10px;border-radius:50%;background:#3572A5;display:inline-block;"></span>Python</span><a href="#" class="repo-link">View ↗</a></div></div>
       <div class="repo-card"><div class="repo-header"><span class="repo-icon">📁</span><h3 class="repo-name">smartbin-arduino</h3></div><p class="repo-desc">Automated trash bin using ultrasonic sensor and servo motor with garbage level detection.</p><div class="repo-footer"><span class="repo-lang"><span style="width:10px;height:10px;border-radius:50%;background:#f34b7d;display:inline-block;"></span>C++</span><a href="#" class="repo-link">View ↗</a></div></div>
       <div class="repo-card"><div class="repo-header"><span class="repo-icon">📁</span><h3 class="repo-name">rice-vending-machine</h3></div><p class="repo-desc">Coin-operated rice dispenser with precise weight dispensing controlled via Arduino.</p><div class="repo-footer"><span class="repo-lang"><span style="width:10px;height:10px;border-radius:50%;background:#f34b7d;display:inline-block;"></span>C++</span><a href="#" class="repo-link">View ↗</a></div></div>
       <div class="repo-card"><div class="repo-header"><span class="repo-icon">📁</span><h3 class="repo-name">smoke-alarm-cctv</h3></div><p class="repo-desc">Integrated smoke detection and real-time video monitoring safety system.</p><div class="repo-footer"><span class="repo-lang"><span style="width:10px;height:10px;border-radius:50%;background:#f34b7d;display:inline-block;"></span>C++</span><a href="#" class="repo-link">View ↗</a></div></div>
@@ -1605,15 +728,15 @@
 <section id="contact" class="section-pad section-alt reveal-section">
   <div class="max-w-7xl mx-auto px-6">
     <div class="section-tag">Contact</div>
-    <h2 class="section-heading mb-2">Let's build something together</h2>
-    <p class="section-sub mb-12">Open to internships, capstone collaborations, and career opportunities.</p>
+    <h2 class="section-heading mb-2">Let's improve product quality together</h2>
+    <p class="section-sub mb-12">Open to QA internships, entry-level AI QA roles, test automation work, and software quality opportunities.</p>
 
     <div class="grid lg:grid-cols-5 gap-12">
       <!-- Info -->
       <div class="lg:col-span-2 space-y-5">
         <div class="contact-cta">
           <h3 style="font-family:var(--font-display);font-size:1.15rem;font-weight:800;margin-bottom:8px;">Open to opportunities</h3>
-          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.75;">Whether it's an internship, freelance project, or entry-level tech role — especially involving Arduino, IoT, automation, or technical systems — I'd love to connect and talk.</p>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.75;">Whether it's an internship, freelance project, or entry-level QA role — especially involving AI QA, Playwright automation, Python validation, or product testing — I'd love to connect and talk.</p>
         </div>
         <a href="mailto:fabuljohnloyd27@gmail.com" class="contact-link">
           <span class="contact-icon">✉️</span>
@@ -1692,7 +815,7 @@
         <span class="text-cyan">[</span>JLF<span class="text-cyan">]</span>
       </div>
       <p style="font-size:12px;color:var(--text-muted);font-family:var(--font-mono);">
-        © 2026 John Loyd F. Fabul · Built with passion &amp; Arduino logic.
+        © 2026 John Loyd F. Fabul · AI QA Engineer · Playwright · Python.
       </p>
       <div class="flex gap-5">
         <a href="https://linkedin.com/in/john-loyd-fabul-016160326" target="_blank" class="footer-link">LinkedIn</a>
@@ -1866,10 +989,15 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Theme */
   const html = document.documentElement;
   const themeBtn = document.getElementById('themeToggle');
-  html.setAttribute('data-theme', localStorage.getItem('portfolio-theme') || 'dark');
+  const setTheme = (theme) => {
+    html.setAttribute('data-theme', theme);
+    themeBtn?.setAttribute('aria-pressed', String(theme === 'dark'));
+    themeBtn?.setAttribute('title', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  };
+  setTheme(localStorage.getItem('portfolio-theme') || 'dark');
   themeBtn?.addEventListener('click', () => {
     const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
+    setTheme(next);
     localStorage.setItem('portfolio-theme', next);
   });
 
@@ -1893,7 +1021,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Typing animation */
   const typingEl = document.querySelector('.typing-text');
-  const phrases = ['Arduino System Developer','IoT Project Builder','Embedded Systems Engineer','Tech Organization Leader','Cum Laude Graduate','Smart Device Creator'];
+  const phrases = ['AI QA Engineer','Playwright Automation Tester','Python QA Validation','API Testing Analyst','AI Data Quality Analyst','Defect Evidence Builder'];
   let pIdx=0, cIdx=0, del=false;
   function typeLoop() {
     if (!typingEl) return;
@@ -1938,7 +1066,8 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active');
       const f = btn.dataset.filter;
       projectCards.forEach(card => {
-        const show = f==='all' || card.dataset.category===f;
+        const categories = (card.dataset.category || '').split(/\s+/);
+        const show = f==='all' || categories.includes(f);
         card.classList.toggle('hidden', !show);
         if(show) card.style.animation='fade-in .4s ease';
       });
@@ -2028,8 +1157,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  console.log('%c [JLF] John Loyd Fabul · Arduino Developer 🔧', 'color:#00D4FF;font-size:16px;font-weight:bold;font-family:monospace;');
-  console.log('%c Cum Laude · BSU Computer Technology · 2026', 'color:#FF6B00;font-size:12px;font-family:monospace;');
+  console.log('%c [JLF] John Loyd Fabul · AI QA Engineer', 'color:#00D4FF;font-size:16px;font-weight:bold;font-family:monospace;');
+  console.log('%c Playwright · Python · AI Data Quality · Cum Laude 2026', 'color:#FF6B00;font-size:12px;font-family:monospace;');
 });
 
 /* Image modal */
@@ -2044,10 +1173,10 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') closeImageModal
 (function(){
   const faq=[
     {kw:['who','name','you'],ans:"I'm John Loyd F. Fabul — I am a BIT Computer Technology student passionate about building Arduino-based systems and IoT solutions, turning ideas into real working prototypes—from smart bins to automated vending machines—that solve real-world problems. Alongside hardware development, I am developing as a Junior Data Analyst with skills in Excel, Google Sheets, SQL, Python, basic Power BI, data validation, and data cleaning to transform raw data into meaningful insights. I also work as a Software Quality Assurance Analyst, experienced in manual testing, Playwright automation testing, API testing, user acceptance testing, system integration testing, using Chrome DevTools, and creating test reports in Google Sheets. After testing, I create clear and user-friendly system manuals using Figma. In the field of AI and automation, I design agentic workflows for data validation, build Chrome extensions for automation, develop web applications, and plan efficient workflows using tools such as ChatGPT, Claude, Gemini, Google AI Studio, Manus AI, and Codex. Additionally, I bring customer service experience through handling customer calls, ensuring clear communication, problem resolution, and professional support."},
-    {kw:['skills','what do','technology','tech'],ans:"Key skills: Arduino (C/C++), IoT systems, sensor integration, MS Office, Canva, leadership, and communication."},
+    {kw:['skills','what do','technology','tech'],ans:"Key skills: Playwright automation, Python QA utilities, AI data quality review, API testing, manual testing, bug reporting, test documentation, Arduino/IoT systems, leadership, and communication."},
     {kw:['project','built','made','work'],ans:"3 major projects: Smartbin Automated System, Rice Vending Machine, and Smoke Alarm & CCTV Monitoring System — all Arduino-based."},
     {kw:['contact','email','phone','reach'],ans:"Email: fabuljohnloyd27@gmail.com · Phone: 0919 762 6160 · LinkedIn: linkedin.com/in/john-loyd-fabul-016160326"},
-    {kw:['hire','internship','job','opportunity'],ans:"John is open to internships, entry-level positions, and collaborations — especially in IoT, embedded systems, or technical roles."},
+    {kw:['hire','internship','job','opportunity'],ans:"John is open to internships, entry-level positions, and collaborations — especially AI QA, software QA, test automation, data validation, and technical roles."},
     {kw:['school','university','bsu','batangas'],ans:"Studying at Batangas State University — BIT major in Computer Technology, Dean's Lister 2023–2024, Cum Laude grad 2026."},
     {kw:['leader','president','class','organization'],ans:"John is Class President (2022–present), Org Officer, CPET Director of TECHLINK (2024–2025), and 4th Year Representative."},
   ];
@@ -2079,7 +1208,7 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') closeImageModal
   clearB?.addEventListener('click',()=>{msgs.innerHTML='';addMsg('bot','Chat cleared. Ask me about John!');inp.focus();});
   sendB?.addEventListener('click',()=>{const v=inp.value.trim();if(!v)return;inp.value='';handle(v);});
   inp?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();sendB.click();}});
-  addMsg('bot','Hi! I\'m John\'s portfolio assistant. Ask me about his Arduino projects, skills, leadership, or how to hire him! 🔧');
+  addMsg('bot','Hi! I\'m John\'s portfolio assistant. Ask me about his AI QA skills, Playwright/Python testing, projects, leadership, or how to hire him.');
 })();
 </script>
 </body>
