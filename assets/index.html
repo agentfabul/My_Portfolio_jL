@@ -55,6 +55,7 @@
 
 <section id="hero" class="hero-section flex items-center relative overflow-hidden pt-20">
   <canvas id="particle-canvas"></canvas>
+  <canvas id="python-snake-canvas" aria-hidden="true"></canvas>
   <div class="hero-glow-blob blob-1"></div>
   <div class="hero-glow-blob blob-2"></div>
   
@@ -165,7 +166,7 @@
             <div class="stat-label">QA Skills</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num font-display">3+</div>
+            <div class="stat-num font-display">8+</div>
             <div class="stat-label">Projects</div>
           </div>
           <div class="stat-card">
@@ -499,6 +500,8 @@
     <div class="flex flex-wrap gap-2 mb-10">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="qa">QA Automation</button>
+      <button class="filter-btn" data-filter="manual">Manual Testing</button>
+      <button class="filter-btn" data-filter="web">Web-Based Systems</button>
       <button class="filter-btn" data-filter="iot">IoT Systems</button>
       <button class="filter-btn" data-filter="arduino">Arduino</button>
       <button class="filter-btn" data-filter="automation">Automation</button>
@@ -538,6 +541,130 @@
             <span class="tag">AI Data QA</span>
             <span class="tag">API Testing</span>
             <span class="tag">Bug Reports</span>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="project-card" data-category="qa manual">
+        <div class="project-visual" style="background:linear-gradient(135deg,#061017,#1f2937);">
+          <img src="/src/Manual-Testing/manual_testing.png" alt="Manual Testing Project"/>
+          <div class="project-visual-fallback">
+            <div class="project-visual-icon">MT</div>
+            <div class="project-visual-label">Manual Testing</div>
+          </div>
+          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28 70 H96 V118 H150 V78 H246" stroke="#00FF88" stroke-width="1" fill="none"/>
+            <path d="M40 314 H116 V260 H186 V322 H262" stroke="#00D4FF" stroke-width="1" fill="none"/>
+            <circle cx="96" cy="70" r="4" fill="#00FF88"/>
+            <circle cx="150" cy="118" r="4" fill="#00FF88"/>
+            <circle cx="186" cy="322" r="4" fill="#00D4FF"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-number">// QA_CASE_STUDY_01</div>
+          <span class="project-cat manual">Manual Testing</span>
+          <h3 class="project-title grad-mix">Manual Testing<br>Project</h3>
+          <p class="project-desc">A manual QA project focused on reviewing system behavior, writing test scenarios, documenting actual results, and preparing clear defect evidence for validation and reporting.</p>
+          <div class="project-tags">
+            <span class="tag">Manual QA</span>
+            <span class="tag">Test Cases</span>
+            <span class="tag">Bug Reports</span>
+            <span class="tag">Validation</span>
+            <span class="tag">Test Evidence</span>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="project-card" data-category="web qa automation">
+        <div class="project-visual" style="background:linear-gradient(135deg,#03111c,#173547);">
+          <img src="/src/Auto-QA/auto_qa.png" alt="Auto-QA Web-Based System"/>
+          <div class="project-visual-fallback">
+            <div class="project-visual-icon">QA</div>
+            <div class="project-visual-label">Auto-QA System</div>
+          </div>
+          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 78 H88 V126 H142 V86 H242" stroke="#00D4FF" stroke-width="1" fill="none"/>
+            <path d="M48 300 H112 V250 H178 V318 H260" stroke="#00FF88" stroke-width="1" fill="none"/>
+            <circle cx="88" cy="78" r="4" fill="#00D4FF"/>
+            <circle cx="142" cy="126" r="4" fill="#00D4FF"/>
+            <circle cx="178" cy="318" r="4" fill="#00FF88"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-number">// WEB_SYSTEM_01</div>
+          <span class="project-cat web">Web-Based System</span>
+          <h3 class="project-title grad-cyan">Auto-QA<br>System</h3>
+          <p class="project-desc">A web-based quality assurance system for organizing test workflows, tracking validation activity, and presenting QA results in a clearer dashboard-style interface for software testing work.</p>
+          <div class="project-tags">
+            <span class="tag">Web System</span>
+            <span class="tag">QA Workflow</span>
+            <span class="tag">Dashboard</span>
+            <span class="tag">Testing</span>
+            <span class="tag">Documentation</span>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="project-card" data-category="web automation">
+        <div class="project-visual" style="background:linear-gradient(135deg,#081323,#203041);">
+          <img src="/src/Ojt-Tracker/ojt-tracker.png" alt="OJT Tracker Web-Based System"/>
+          <div class="project-visual-fallback">
+            <div class="project-visual-icon">OJT</div>
+            <div class="project-visual-label">OJT Tracker</div>
+          </div>
+          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 54 H106 V100 H178 V70 H252" stroke="#00D4FF" stroke-width="1" fill="none"/>
+            <path d="M42 334 H122 V286 H182 V230 H260" stroke="#FF6B00" stroke-width="1" fill="none"/>
+            <circle cx="106" cy="54" r="4" fill="#00D4FF"/>
+            <circle cx="178" cy="100" r="4" fill="#00D4FF"/>
+            <circle cx="182" cy="286" r="4" fill="#FF6B00"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-number">// WEB_SYSTEM_02</div>
+          <span class="project-cat web">Web-Based System</span>
+          <h3 class="project-title grad-mix">OJT Tracker<br>System</h3>
+          <p class="project-desc">A web-based tracking platform for monitoring on-the-job training records, student progress, attendance-related updates, and coordinator review needs in a structured digital workflow.</p>
+          <div class="project-tags">
+            <span class="tag">Web App</span>
+            <span class="tag">OJT Monitoring</span>
+            <span class="tag">Records</span>
+            <span class="tag">Student Tracking</span>
+            <span class="tag">Admin Workflow</span>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="project-card" data-category="web automation">
+        <div class="project-visual" style="background:linear-gradient(135deg,#111018,#2f2236);">
+          <img src="/src/San Ignacio Canteen System/canteen-management system.png" alt="San Ignacio Canteen Management Web-Based System"/>
+          <div class="project-visual-fallback">
+            <div class="project-visual-icon">POS</div>
+            <div class="project-visual-label">Canteen Management</div>
+          </div>
+          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 116 H90 V70 H158 V126 H248" stroke="#FF6B00" stroke-width="1" fill="none"/>
+            <path d="M56 322 H126 V266 H202 V304 H268" stroke="#00D4FF" stroke-width="1" fill="none"/>
+            <circle cx="90" cy="116" r="4" fill="#FF6B00"/>
+            <circle cx="158" cy="70" r="4" fill="#FF6B00"/>
+            <circle cx="202" cy="304" r="4" fill="#00D4FF"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-number">// WEB_SYSTEM_03</div>
+          <span class="project-cat web">Web-Based System</span>
+          <h3 class="project-title grad-orange">San Ignacio<br>Canteen System</h3>
+          <p class="project-desc">A web-based canteen management system for handling menu records, ordering or transaction workflows, and administrative monitoring for a more organized food-service operation.</p>
+          <div class="project-tags">
+            <span class="tag">Web System</span>
+            <span class="tag">Canteen Management</span>
+            <span class="tag">Transactions</span>
+            <span class="tag">Admin Panel</span>
+            <span class="tag">Records</span>
           </div>
         </div>
       </div>
@@ -745,11 +872,11 @@
             <div style="font-weight:700;font-size:13.5px;">fabuljohnloyd27@gmail.com</div>
           </div>
         </a>
-        <a href="https://linkedin.com/in/john-loyd-fabul-016160326" target="_blank" class="contact-link">
+        <a href="https://www.linkedin.com/in/john-loyd-fabul-99a758410" target="_blank" class="contact-link">
           <span class="contact-icon">💼</span>
           <div>
             <div style="font-family:var(--font-mono);font-size:10px;opacity:.5;margin-bottom:2px;">LINKEDIN</div>
-            <div style="font-weight:700;font-size:13px;">john-loyd-fabul-016160326</div>
+            <div style="font-weight:700;font-size:13px;">john-loyd-fabul-99a758410</div>
           </div>
         </a>
         <a href="tel:09197626160" class="contact-link">
@@ -764,24 +891,27 @@
       
       <div class="lg:col-span-3">
         <div class="contact-form-card">
-          <form id="contactForm" class="space-y-5">
+          <form id="contactForm" class="space-y-5" action="https://formsubmit.co/ajax/fabuljohnloyd27@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New portfolio message for John Loyd Fabul"/>
+            <input type="hidden" name="_template" value="table"/>
+            <input type="hidden" name="_captcha" value="false"/>
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <label class="form-label">Full Name</label>
-                <input type="text" placeholder="Pogi ako" class="form-input" required/>
+                <input type="text" name="name" placeholder="Your full name" class="form-input" required/>
               </div>
               <div>
                 <label class="form-label">Email</label>
-                <input type="email" placeholder="hireme@company.com" class="form-input" required/>
+                <input type="email" name="email" placeholder="hireme@company.com" class="form-input" required/>
               </div>
             </div>
             <div>
               <label class="form-label">Company / Organization</label>
-              <input type="text" placeholder="Your company or institution" class="form-input"/>
+              <input type="text" name="company" placeholder="Your company or institution" class="form-input"/>
             </div>
             <div>
               <label class="form-label">Subject</label>
-              <select class="form-input">
+              <select name="subject" class="form-input">
                 <option>Job Opportunity</option>
                 <option>Internship</option>
                 <option>Project Collaboration</option>
@@ -790,8 +920,9 @@
             </div>
             <div>
               <label class="form-label">Message</label>
-              <textarea rows="4" placeholder="Tell me about the opportunity or project…" class="form-input" required></textarea>
+              <textarea rows="4" name="message" placeholder="Tell me about the opportunity or project…" class="form-input" required></textarea>
             </div>
+            <p id="formError" class="form-error hidden">Message was not sent. Please try again or email me directly.</p>
             <button type="submit" class="btn-primary w-full justify-center py-3.5 text-sm">
               Send Message →
             </button>
@@ -818,7 +949,7 @@
         © 2026 John Loyd F. Fabul · AI QA Engineer · Playwright · Python.
       </p>
       <div class="flex gap-5">
-        <a href="https://linkedin.com/in/john-loyd-fabul-016160326" target="_blank" class="footer-link">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/john-loyd-fabul-99a758410" target="_blank" class="footer-link">LinkedIn</a>
         <a href="mailto:fabuljohnloyd27@gmail.com" class="footer-link">Email</a>
         <a href="tel:09197626160" class="footer-link">Phone</a>
       </div>
