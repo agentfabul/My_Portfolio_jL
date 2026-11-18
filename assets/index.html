@@ -3,993 +3,589 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>John Loyd F. Fabul — AI QA Engineer · Playwright Automation · Python Testing</title>
+  <title>John Loyd F. Fabul — Full-Stack Developer · QA Automation</title>
+  <meta name="description" content="John Loyd F. Fabul — Full-stack developer (Node.js, TypeScript, React, PostgreSQL) building business operations, billing and reporting tools, with a QA automation background in Playwright and Python."/>
+  <meta property="og:title" content="John Loyd F. Fabul — Full-Stack Developer · QA Automation"/>
+  <meta property="og:description" content="Turning spreadsheets into web apps. Node.js · TypeScript · React · PostgreSQL · Playwright."/>
+  <meta property="og:image" content="/src/profile/my_profile.png"/>
+  <meta name="theme-color" content="#0a1628"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300&family=Nunito:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/assets/styles.css"/>
 </head>
 <body>
 
-
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#" class="nav-logo">
-      <span class="bracket">[</span>JLF<span class="bracket">]</span>
-    </a>
-    <ul class="hidden md:flex items-center gap-8">
-      <li><a href="#about"    class="nav-link">About</a></li>
-      <li><a href="#skills"   class="nav-link">Skills</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#workflow" class="nav-link">Experience</a></li>
-      <li><a href="#github"   class="nav-link">GitHub</a></li>
-      <li><a href="#contact"  class="nav-link">Contact</a></li>
-    </ul>
-    <div class="flex items-center gap-3">
-      <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
-        <span class="sun-icon">☀️</span>
-        <span class="moon-icon">🌙</span>
+<!-- ============ NAV ============ -->
+<header id="navbar" class="nav">
+  <div class="wrap nav-inner">
+    <a href="#hero" class="logo" aria-label="Home"><span class="c">[</span>JLF<span class="c">]</span><span class="logo-os">.os</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#github">GitHub</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle light/dark theme">
+        <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       </button>
-      <a href="#contact" class="btn-hire hidden md:inline-flex"><span>Hire Me</span></a>
-      <button id="menuToggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
-        <span class="menu-line"></span>
-        <span class="menu-line"></span>
-        <span class="menu-line short"></span>
+      <a href="#contact" class="btn btn-primary btn-sm hide-sm">Hire me</a>
+      <button id="menuToggle" class="icon-btn show-sm" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
       </button>
     </div>
   </div>
-  <div id="mobileMenu" class="mobile-menu md:hidden hidden">
-    <ul class="flex flex-col gap-4 px-6 py-6">
-      <li><a href="#about"    class="nav-link mobile-nav-link text-base">About</a></li>
-      <li><a href="#skills"   class="nav-link mobile-nav-link text-base">Skills</a></li>
-      <li><a href="#projects" class="nav-link mobile-nav-link text-base">Projects</a></li>
-      <li><a href="#workflow" class="nav-link mobile-nav-link text-base">Experience</a></li>
-      <li><a href="#github"   class="nav-link mobile-nav-link text-base">GitHub</a></li>
-      <li><a href="#contact"  class="nav-link mobile-nav-link text-base">Contact</a></li>
-      <li><a href="#contact"  class="btn-primary text-sm px-4 py-2.5 justify-center">Hire Me</a></li>
-    </ul>
+  <div id="mobileMenu" class="mobile-menu" hidden>
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+    <a href="#experience">Experience</a><a href="#github">GitHub</a><a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-primary">Hire me</a>
   </div>
-</nav>
+</header>
 
-
-<section id="hero" class="hero-section flex items-center relative overflow-hidden pt-20">
-  <canvas id="particle-canvas"></canvas>
+<main>
+<!-- ============ HERO ============ -->
+<section id="hero" class="hero">
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
   <canvas id="python-snake-canvas" aria-hidden="true"></canvas>
-  <div class="hero-glow-blob blob-1"></div>
-  <div class="hero-glow-blob blob-2"></div>
-  
-  <div class="circuit-bg absolute inset-0 pointer-events-none" style="mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, black 100%);opacity:.35;"></div>
+  <div class="hero-grid-bg" aria-hidden="true"></div>
 
-  <div class="max-w-7xl mx-auto px-6 py-20 w-full relative z-10">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      
-      <div>
-        <div class="boot-badge">
-          <span class="boot-dot"></span>
-          <span>QA PIPELINE ONLINE · AI QA Engineer</span>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <div class="pill"><span class="dot"></span> SYSTEM ONLINE · Open to opportunities</div>
+      <h1 class="hero-title">John Loyd <span class="grad">Fabul</span></h1>
+      <p class="hero-role mono"><span class="prompt">~/jlf $</span> <span id="typed"></span><span class="caret">▍</span></p>
+      <p class="hero-lead">
+        Full-stack developer building the tools that run real operations — billing, inventory and reporting systems
+        on <strong>Node.js, TypeScript, React and PostgreSQL</strong>. A QA background in Playwright and Python means
+        what I ship is tested, documented and dependable.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View my work <span aria-hidden="true">→</span></a>
+        <a href="https://github.com/agentfabul" target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+          GitHub
+        </a>
+        <a href="#contact" class="btn btn-ghost">Let's talk</a>
+      </div>
+      <ul class="hero-stats">
+        <li><b data-count="17">0</b><span>public repos</span></li>
+        <li><b data-count="13" data-suffix="+">0</b><span>projects shipped</span></li>
+        <li><b>Cum Laude</b><span>BSU · 2026</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-visual">
+      <div class="terminal" aria-label="Boot sequence">
+        <div class="term-bar">
+          <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+          <span class="term-title">jlf.os — system check</span>
         </div>
+        <pre class="term-body" id="bootLog" aria-live="polite"></pre>
+        <div class="hazard" aria-hidden="true"></div>
+      </div>
+      <div class="avatar-wrap">
+        <div class="avatar-ring" aria-hidden="true"></div>
+        <img src="/src/profile/my_profile.png" alt="Portrait of John Loyd F. Fabul" class="avatar" width="220" height="220"/>
+        <span class="chip chip-a">⚡ React · Node</span>
+        <span class="chip chip-b">🐘 PostgreSQL</span>
+        <span class="chip chip-c">✓ Playwright QA</span>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-hint mono" aria-label="Scroll to About">scroll ↓</a>
+</section>
 
-        <h1 class="hero-name mb-2">
-          John Loyd
-        </h1>
-        <h1 class="hero-name mb-6">
-          <span class="glitch-text grad-cyan" data-text="Fabul">Fabul</span>
-        </h1>
-
-        <div class="terminal-wrapper mb-6">
-          <span class="terminal-prompt">~/dev $&nbsp;</span>
-          <span class="typing-text"></span>
-          <span class="cursor"></span>
-        </div>
-
-        <p class="hero-desc" style="text-align: justify;">
-  I help teams ship reliable AI-driven software through structured manual testing, Playwright automation, Python-based validation, API checks, and clear defect reporting. My strength is turning messy product behavior into repeatable test cases, clean evidence, and practical quality improvements recruiters can recognize immediately.
-</p>
-
-        <div class="flex flex-wrap gap-3 mb-10">
-          <a href="#projects" class="btn-primary">View QA Work ↗</a>
-          <a href="/assets/resume.pdf" download class="btn-secondary">Download CV</a>
-          <a href="#contact"  class="btn-ghost">Let's Talk</a>
-        </div>
-
-        <div class="tech-badges flex flex-wrap gap-2">
-          <span class="tech-badge"><span class="dot"></span>Playwright</span>
-          <span class="tech-badge"><span class="dot" style="background:var(--green)"></span>Python</span>
-          <span class="tech-badge"><span class="dot" style="background:var(--orange)"></span>API Testing</span>
-          <span class="tech-badge"><span class="dot"></span>AI Data QA</span>
-          <span class="tech-badge"><span class="dot"></span>Test Cases</span>
-          <span class="tech-badge"><span class="dot" style="background:var(--green)"></span>Leadership</span>
-          <span class="tech-badge"><span class="dot" style="background:var(--orange)"></span>Bug Reports</span>
-        </div>
+<!-- ============ ABOUT ============ -->
+<section id="about" class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">01 · about</span>
+      <h2>Developer who thinks like a tester</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I'm a <strong>Computer Engineering Technology</strong> graduate of Batangas State University — The National
+          Engineering University, finishing <strong>Cum Laude</strong> and a Dean's Lister. Today I build full-stack web
+          apps that replace manual, spreadsheet-heavy work: a scaffold-rental management platform, automated billing
+          reports, dashboards and data tools.
+        </p>
+        <p>
+          My first role in software was <strong>Quality Assurance</strong> — manual testing, Playwright automation, API
+          checks, UAT/SIT and clear defect reports. That shapes how I build: validate the data, cover the edge cases,
+          write the manual, and leave the system easier to maintain than I found it.
+        </p>
+        <p>
+          I also prototype hardware with Arduino (a smart bin, a coin-operated rice dispenser, a smoke-alarm CCTV system),
+          and I've led as Class President, 4th Year Representative and CPET Director of TECHLINK.
+        </p>
+        <blockquote class="motto mono">"If it's done in Excel twice, it should be an app."</blockquote>
       </div>
 
-      
-      <div class="flex flex-col items-center lg:items-start gap-8">
-        <div class="qa-command-panel">
-          <div class="qa-panel-bar">
-            <div class="qa-window-dots"><span></span><span></span><span></span></div>
-            <div class="qa-panel-title">automation.spec.ts</div>
-          </div>
-          <div class="qa-panel-body">
-            <div class="qa-code-line"><span class="ln">01</span><span><span class="kw">test</span>(<span class="str">'critical user flow'</span>, <span class="kw">async</span> ({ page }) =&gt; {</span></div>
-            <div class="qa-code-line"><span class="ln">02</span><span>&nbsp;&nbsp;<span class="kw">await</span> page.<span class="fn">goto</span>(<span class="str">'/production'</span>)</span></div>
-            <div class="qa-code-line"><span class="ln">03</span><span>&nbsp;&nbsp;<span class="kw">await</span> expect(page).<span class="fn">toHaveNoBrokenUI</span>()</span></div>
-            <div class="qa-code-line"><span class="ln">04</span><span>})</span></div>
-            <div class="qa-status-grid">
-              <div class="qa-status"><strong>UI</strong><span>Playwright</span></div>
-              <div class="qa-status"><strong>API</strong><span>Validation</span></div>
-              <div class="qa-status"><strong>AI</strong><span>Data QA</span></div>
+      <div class="code-card reveal" aria-label="Profile summary">
+        <div class="term-bar"><span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span><span class="term-title">profile.ts</span></div>
+<pre class="code"><span class="k">const</span> <span class="v">jlf</span> = {
+  <span class="p">role</span>:      <span class="s">"Full-Stack Developer"</span>,
+  <span class="p">alsoDoes</span>:  <span class="s">"QA Automation"</span>,
+  <span class="p">location</span>:  <span class="s">"Rosario, Batangas 🇵🇭"</span>,
+  <span class="p">education</span>: <span class="s">"BSU · Cum Laude 2026"</span>,
+  <span class="p">stack</span>:     [<span class="s">"Node"</span>, <span class="s">"TS"</span>, <span class="s">"React"</span>, <span class="s">"PostgreSQL"</span>],
+  <span class="p">building</span>:  <span class="s">"scaffold-rental platform"</span>,
+  <span class="p">languages</span>: [<span class="s">"English"</span>, <span class="s">"Filipino"</span>],
+  <span class="p">available</span>: <span class="b">true</span>,
+};</pre>
+      </div>
+    </div>
+
+    <ul class="values reveal">
+      <li><span>01</span>Ship working software</li>
+      <li><span>02</span>Validate the data</li>
+      <li><span>03</span>Automate the repeatable</li>
+      <li><span>04</span>Document clearly</li>
+      <li><span>05</span>Keep learning</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" class="section alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">02 · installed modules</span>
+      <h2>Skills &amp; stack</h2>
+      <p class="sec-sub">Full-stack first, with testing, data and automation built in.</p>
+    </div>
+
+    <div class="stack-strip reveal" aria-label="Main technologies">
+      <img src="https://skillicons.dev/icons?i=nodejs,ts,js,react,postgres,supabase,tailwind,html,css,python,java,laravel&theme=dark" alt="Node.js, TypeScript, JavaScript, React, PostgreSQL, Supabase, Tailwind, HTML, CSS, Python, Java, Laravel" loading="lazy"/>
+    </div>
+
+    <div class="skill-grid">
+      <article class="skill-card reveal" style="--accent:var(--cyan)">
+        <div class="skill-top"><span class="skill-ico">⚛️</span><span class="skill-tag mono">core</span></div>
+        <h3>Frontend</h3>
+        <p>Responsive, data-heavy interfaces — dashboards, forms, role-based views.</p>
+        <ul class="tags"><li>React</li><li>TypeScript</li><li>JavaScript</li><li>HTML/CSS</li><li>Tailwind</li></ul>
+      </article>
+      <article class="skill-card reveal" style="--accent:var(--cyan)">
+        <div class="skill-top"><span class="skill-ico">🛠️</span><span class="skill-tag mono">core</span></div>
+        <h3>Backend &amp; Database</h3>
+        <p>REST APIs, auth, relational schemas and reporting queries.</p>
+        <ul class="tags"><li>Node.js</li><li>REST APIs</li><li>PostgreSQL</li><li>Supabase</li><li>SQL</li><li>Laravel</li></ul>
+      </article>
+      <article class="skill-card reveal" style="--accent:var(--green)">
+        <div class="skill-top"><span class="skill-ico">🧪</span><span class="skill-tag mono">qa</span></div>
+        <h3>QA &amp; Test Automation</h3>
+        <p>E2E regression, API validation, UAT/SIT and evidence-backed bug reports.</p>
+        <ul class="tags"><li>Playwright</li><li>API testing</li><li>Manual testing</li><li>UAT · SIT</li><li>Chrome DevTools</li></ul>
+      </article>
+      <article class="skill-card reveal" style="--accent:var(--amber)">
+        <div class="skill-top"><span class="skill-ico">📊</span><span class="skill-tag mono">data</span></div>
+        <h3>Data &amp; Reporting</h3>
+        <p>Cleaning, validating and turning raw workbooks into reports and dashboards.</p>
+        <ul class="tags"><li>Python</li><li>Excel</li><li>Google Sheets</li><li>Apps Script</li><li>Power BI</li></ul>
+      </article>
+      <article class="skill-card reveal" style="--accent:var(--violet)">
+        <div class="skill-top"><span class="skill-ico">🤖</span><span class="skill-tag mono">ai</span></div>
+        <h3>AI &amp; Automation</h3>
+        <p>Agentic workflows for data validation, Chrome extensions, AI-assisted dev and testing.</p>
+        <ul class="tags"><li>Claude</li><li>ChatGPT</li><li>Codex</li><li>Gemini</li><li>AI Studio</li></ul>
+      </article>
+      <article class="skill-card reveal" style="--accent:var(--pink)">
+        <div class="skill-top"><span class="skill-ico">🎨</span><span class="skill-tag mono">docs</span></div>
+        <h3>Design &amp; Documentation</h3>
+        <p>UI mockups, system manuals, test cases and clear technical write-ups.</p>
+        <ul class="tags"><li>Figma</li><li>User manuals</li><li>Test reports</li><li>MS Office</li></ul>
+      </article>
+      <article class="skill-card reveal" style="--accent:var(--orange)">
+        <div class="skill-top"><span class="skill-ico">🔌</span><span class="skill-tag mono">hardware</span></div>
+        <h3>IoT &amp; Embedded</h3>
+        <p>Sensor-driven prototypes built, wired and field-tested end to end.</p>
+        <ul class="tags"><li>Arduino</li><li>C/C++</li><li>Sensors</li><li>Servo/DC motors</li></ul>
+      </article>
+      <article class="skill-card reveal" style="--accent:var(--slate)">
+        <div class="skill-top"><span class="skill-ico">🧰</span><span class="skill-tag mono">toolchain</span></div>
+        <h3>Tools &amp; Deploy</h3>
+        <p>Version control, hosting and API tooling for the full workflow.</p>
+        <ul class="tags"><li>Git/GitHub</li><li>Vercel</li><li>Netlify</li><li>Docker</li><li>Postman</li><li>VS Code</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">03 · active builds</span>
+      <h2>Featured projects</h2>
+      <p class="sec-sub">From production business tools to QA labs and hardware prototypes.</p>
+    </div>
+
+    <div class="filters reveal" role="tablist" aria-label="Filter projects">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="fullstack">Full-stack</button>
+      <button class="filter" data-filter="data">Data &amp; tools</button>
+      <button class="filter" data-filter="qa">QA</button>
+      <button class="filter" data-filter="iot">IoT</button>
+    </div>
+
+    <!-- Spotlight -->
+    <article class="spotlight reveal" data-cat="fullstack">
+      <div class="spot-copy">
+        <span class="badge badge-amber">● In progress · Flagship</span>
+        <h3>Scaffolding Management Pro</h3>
+        <p>
+          End-to-end scaffold-rental platform that replaces spreadsheet tracking: inventory and tagging, deliveries and
+          returns, role-based encoding, and monthly billing — backed by a relational PostgreSQL schema.
+        </p>
+        <ul class="feat">
+          <li>Role-based access (admin / encoder)</li>
+          <li>Inventory, tags &amp; delivery tracking</li>
+          <li>Billing data that feeds automated reports</li>
+        </ul>
+        <ul class="tags"><li>React</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li><li>Netlify</li></ul>
+        <a class="link" href="https://github.com/agentfabul/scaffolding-management-pro" target="_blank" rel="noopener">View repository ↗</a>
+      </div>
+      <div class="spot-visual" aria-hidden="true">
+        <div class="mock">
+          <div class="mock-bar"><span></span><span></span><span></span><em>scaffold · dashboard</em></div>
+          <div class="mock-body">
+            <div class="mock-kpis">
+              <div><small>On rent</small><b>1,284</b></div>
+              <div><small>Deliveries</small><b>36</b></div>
+              <div><small>Billed MTD</small><b class="amber">₱ ●●●</b></div>
+            </div>
+            <div class="mock-chart">
+              <i style="--h:40%"></i><i style="--h:62%"></i><i style="--h:48%"></i><i style="--h:75%"></i><i style="--h:58%"></i><i style="--h:88%"></i><i style="--h:70%"></i><i style="--h:94%"></i>
+            </div>
+            <div class="mock-rows">
+              <div><span class="st ok"></span>TAG-0412 · Frame 1.7m <em>delivered</em></div>
+              <div><span class="st warn"></span>TAG-0398 · Ledger 2.4m <em>pending</em></div>
+              <div><span class="st ok"></span>TAG-0377 · Base jack <em>returned</em></div>
             </div>
           </div>
         </div>
-        <div class="photo-outer mx-auto lg:mx-0">
-          
-          <svg class="photo-ring-svg" viewBox="0 0 440 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);">
-            <circle cx="220" cy="220" r="210" stroke="url(#ringGrad)" stroke-width="2" stroke-dasharray="12 6"/>
-            <defs>
-              <linearGradient id="ringGrad" x1="0" y1="0" x2="440" y2="440" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#00D4FF"/>
-                <stop offset="50%" stop-color="#FF6B00"/>
-                <stop offset="100%" stop-color="#00D4FF"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          
-          <div class="orbit-ring"></div>
-          <div class="orbit-ring orbit-ring-2"></div>
-
-          <div class="photo-inner">
-            <img src="/src/profile/my_profile.png" alt="John Loyd F. Fabul"
-                 onerror="this.parentElement.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--text-muted);gap:8px\'><span style=\'font-size:64px\'>👨‍💻</span><span style=\'font-family:var(--font-mono);font-size:12px;opacity:.5\'>JLF</span></div>'"/>
-          </div>
-
-          
-          <div class="orbit-badge tl">
-            <span class="text-cyan">⚡</span> Playwright QA
-          </div>
-          <div class="orbit-badge tr">
-            <span style="color:var(--green)">🎓</span> Software QA Analyst
-          </div>
-          <div class="orbit-badge bl">
-            <span class="text-orange">📡</span> Python Tester
-          </div>
-          <div class="orbit-badge br">
-            <span style="color:var(--green)">✓</span> AI Data QA
-          </div>
-        </div>
-
-        
-        <div class="stats-row grid grid-cols-3 gap-3 w-full max-w-xs">
-          <div class="stat-card">
-            <div class="stat-num font-display">8+</div>
-            <div class="stat-label">QA Skills</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num font-display">8+</div>
-            <div class="stat-label">Projects</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num font-display">2026</div>
-            <div class="stat-label">Graduate</div>
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
+    </article>
 
-  
-  <div class="scroll-indicator">
-    <div class="scroll-mouse">
-      <div class="scroll-dot-m"></div>
-    </div>
-    <span class="scroll-label">Scroll</span>
-  </div>
-</section>
+    <div class="proj-grid">
+      <!-- Data & tools -->
+      <article class="proj reveal" data-cat="data">
+        <div class="proj-visual code-visual" aria-hidden="true">
+<pre><span class="k">$</span> python make_report.py billing_oct.xlsx
+<span class="ok">✓</span> parsed 2,318 rows
+<span class="ok">✓</span> Summary Report
+<span class="ok">✓</span> Tag Summary
+<span class="ok">✓</span> Dashboard → report.xlsx</pre>
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat mono">data · automation</span>
+          <h3>Scaffold Billing Report Tool</h3>
+          <p>Turns monthly billing workbooks into a Summary Report, Tag Summary and Dashboard in one run — hours of manual Excel work reduced to seconds.</p>
+          <ul class="tags"><li>Python</li><li>Excel</li><li>openpyxl</li></ul>
+          <a class="link" href="https://github.com/agentfabul/scaffold_report_tool" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
 
+      <article class="proj reveal" data-cat="fullstack data">
+        <div class="proj-visual iso-visual" aria-hidden="true">
+          <div class="iso"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat mono">web · 3d</span>
+          <h3>Interactive 3D Plot Plan</h3>
+          <p>Converts a static PDF site plot plan into an interactive, explorable 3D map for faster on-site navigation and planning.</p>
+          <ul class="tags"><li>JavaScript</li><li>HTML</li><li>3D/WebGL</li></ul>
+          <a class="link" href="https://github.com/agentfabul/map" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
 
-<section id="about" class="section-pad reveal-section">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="section-tag">About Me</div>
-    <div class="grid lg:grid-cols-5 gap-14 items-start">
-      <div class="lg:col-span-3">
-        <h2 class="section-heading mb-6">
-  <span class="grad-mix">AI QA Engineer | Automation • Testing • Reliability</span>
-</h2>
-        <div class="about-text space-y-5" style="text-align: justify;">
-          <p>I am a <strong>Computer Engineering Technology</strong> graduate from Batangas State University - The National Engineering University, recognized as a <strong>Cum Laude</strong>. I specialize in <strong>Software Quality Assurance</strong> with skills in Playwright automation, Python validation, data quality review, and AI-assisted testing workflows.</p>
+      <article class="proj reveal" data-cat="data">
+        <div class="proj-visual calc-visual" aria-hidden="true">
+          <div class="calc"><div class="calc-screen mono">σ = P / A<br/><b>= 12.48 MPa</b></div><div class="calc-keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat mono">desktop · engineering</span>
+          <h3>Civil Calculator</h3>
+          <p>Calculator for common civil-engineering computations, built to make repeat field calculations quick and consistent.</p>
+          <ul class="tags"><li>Java</li></ul>
+          <a class="link" href="https://github.com/agentfabul/civil_calculator" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
 
-          <p>I am passionate about ensuring software reliability through structured testing, manual and automated QA processes, and improving system quality using modern tools and AI-driven approaches.</p>
+      <!-- Full-stack with screenshots -->
+      <article class="proj reveal" data-cat="fullstack">
+        <button class="proj-visual img-visual" data-zoom="/src/Ojt-Tracker/ojt-tracker.png" data-title="OJT Tracker System" aria-label="Enlarge OJT Tracker screenshot">
+          <img src="/src/Ojt-Tracker/ojt-tracker.png" alt="OJT Tracker system screenshot" loading="lazy"/>
+        </button>
+        <div class="proj-body">
+          <span class="proj-cat mono">web app</span>
+          <h3>OJT Tracker</h3>
+          <p>Internship monitoring and time-tracking platform: student records, attendance logs, progress and coordinator review in one workflow.</p>
+          <ul class="tags"><li>Laravel</li><li>Blade</li><li>MySQL</li></ul>
+          <a class="link" href="https://github.com/agentfabul/ojt-tracker" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
 
-          <p>Alongside my software QA focus, I have experience in building <strong>Arduino-based prototypes and automated systems</strong> that solve real-world problems — from a sensor-triggered smart waste bin to a coin-operated rice vending machine and an integrated smoke-alarm CCTV system.</p>
+      <article class="proj reveal" data-cat="fullstack">
+        <button class="proj-visual img-visual" data-zoom="/src/San Ignacio Canteen System/canteen-management system.png" data-title="San Ignacio Canteen System" aria-label="Enlarge Canteen System screenshot">
+          <img src="/src/San Ignacio Canteen System/canteen-management system.png" alt="San Ignacio Canteen System screenshot" loading="lazy"/>
+        </button>
+        <div class="proj-body">
+          <span class="proj-cat mono">web app</span>
+          <h3>San Ignacio Canteen System</h3>
+          <p>Canteen management for menu records, ordering and transactions, with an admin panel for day-to-day monitoring.</p>
+          <ul class="tags"><li>JavaScript</li><li>Admin panel</li><li>Records</li></ul>
+          <a class="link" href="https://github.com/agentfabul/canteen-system" target="_blank" rel="noopener">Repository ↗</a>
+        </div>
+      </article>
 
-          <p>Beyond the technical field, I served as <strong>Class President</strong>, <strong>4th Year Representative</strong>, and <strong>CPET Director of TECH LINK </strong> — coordinating events, mentoring peers, and bridging students with technology opportunities.</p> 
-          </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-8">
-          <div class="highlight-chip">
-            <div class="chip-icon">🎭</div>
-            <div><div class="chip-label">Playwright</div><div class="chip-sub">E2E Automation</div></div>
-          </div>
-          <div class="highlight-chip">
-            <div class="chip-icon">🐍</div>
-            <div><div class="chip-label">Python QA</div><div class="chip-sub">Validation Scripts</div></div>
-          </div>
-          <div class="highlight-chip">
-            <div class="chip-icon">🤖</div>
-            <div><div class="chip-label">AI Data QA</div><div class="chip-sub">Output Review</div></div>
-          </div>
-          <div class="highlight-chip">
-            <div class="chip-icon">👨‍💼</div>
-            <div><div class="chip-label">Leadership</div><div class="chip-sub">Class President</div></div>
-          </div>
-          <div class="highlight-chip">
-            <div class="chip-icon">🧾</div>
-            <div><div class="chip-label">Documentation</div><div class="chip-sub">Tests &amp; Reports</div></div>
-          </div>
-          <div class="highlight-chip">
-            <div class="chip-icon">🔧</div>
-            <div><div class="chip-label">IoT Builds</div><div class="chip-sub">Arduino Systems</div></div>
-          </div>
+      <article class="proj reveal" data-cat="fullstack qa">
+        <button class="proj-visual img-visual" data-zoom="/src/Auto-QA/auto_qa.png" data-title="Auto-QA System" aria-label="Enlarge Auto-QA screenshot">
+          <img src="/src/Auto-QA/auto_qa.png" alt="Auto-QA system screenshot" loading="lazy"/>
+        </button>
+        <div class="proj-body">
+          <span class="proj-cat mono">web app · qa</span>
+          <h3>Auto-QA System</h3>
+          <p>Web-based QA workspace for organizing test workflows, tracking validation activity and presenting results in a dashboard.</p>
+          <ul class="tags"><li>JavaScript</li><li>Dashboard</li><li>QA workflow</li></ul>
+          <a class="link" href="https://github.com/agentfabul/AutoQA" target="_blank" rel="noopener">Repository ↗</a>
         </div>
-      </div>
+      </article>
 
-      <div class="lg:col-span-2">
-        <div class="about-card">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
-            <span style="font-family:var(--font-mono);font-size:11px;color:var(--cyan);">// PROFILE.json</span>
-          </div>
-          <ul class="space-y-4">
-            <li class="info-row"><span class="info-label">program</span><span class="info-value" style="font-size:12px;">BIT — Computer Technology</span></li>
-            <li class="info-row"><span class="info-label">university</span><span class="info-value" style="font-size:12px;">Batangas State Univ.</span></li>
-            <li class="info-row"><span class="info-label">location</span><span class="info-value">Rosario, Batangas 🇵🇭</span></li>
-            <li class="info-row"><span class="info-label">status</span><span class="info-value" style="color:var(--green);font-family:var(--font-mono);font-size:12px;">Cum Laude Graduate</span></li>
-            <li class="info-row"><span class="info-label">grad_year</span><span class="info-value" style="color:var(--cyan);font-family:var(--font-mono);">2026</span></li>
-            <li class="info-row"><span class="info-label">languages</span><span class="info-value">English · Filipino</span></li>
-          </ul>
-          <div class="divider my-5"></div>
-          <p style="font-family:var(--font-mono);font-size:11px;color:var(--cyan);margin-bottom:12px;">// CORE_VALUES[]</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="value-tag">Quality Mindset</span>
-            <span class="value-tag">Clear Evidence</span>
-            <span class="value-tag">Automation</span>
-            <span class="value-tag">Problem-solving</span>
-            <span class="value-tag">Continuous Learning</span>
-          </div>
-          <div class="divider my-5"></div>
-          <a href="mailto:fabuljohnloyd27@gmail.com" class="btn-primary w-full justify-center py-3">
-            Get In Touch →
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- QA -->
+      <article class="proj reveal" data-cat="qa">
+        <div class="proj-visual code-visual" aria-hidden="true">
+<pre><span class="k">from</span> playwright.sync_api <span class="k">import</span> expect
 
+<span class="k">def</span> <span class="f">test_checkout</span>(page):
+    page.goto(<span class="s">"/cart"</span>)
+    expect(page.locator(<span class="s">".total"</span>)).to_be_visible()
+<span class="ok">✓ 24 passed</span> <span class="dim">· 0 failed · 3.1s</span></pre>
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat mono">qa · automation</span>
+          <h3>AI QA Automation Test Lab</h3>
+          <p>Playwright browser automation, Python data checks, API response validation and AI-output review — with traces and concise test reports.</p>
+          <ul class="tags"><li>Playwright</li><li>Python</li><li>API testing</li></ul>
+        </div>
+      </article>
 
-<section id="skills" class="section-pad section-alt reveal-section">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="section-tag">Skill Set</div>
-    <h2 class="section-heading mb-2">What I bring to the table</h2>
-    <p class="section-sub mb-10">Automation-ready QA skills, AI data validation, technical documentation, and real project work.</p>
+      <article class="proj reveal" data-cat="qa">
+        <button class="proj-visual img-visual" data-zoom="/src/Manual-Testing/manual_testing.png" data-title="Manual Testing Project" aria-label="Enlarge Manual Testing screenshot">
+          <img src="/src/Manual-Testing/manual_testing.png" alt="Manual testing project screenshot" loading="lazy"/>
+        </button>
+        <div class="proj-body">
+          <span class="proj-cat mono">qa · manual</span>
+          <h3>Manual Testing Project</h3>
+          <p>Test scenarios, actual-vs-expected results and reproducible defect evidence prepared for validation and sign-off.</p>
+          <ul class="tags"><li>Test cases</li><li>Bug reports</li><li>UAT</li></ul>
+        </div>
+      </article>
 
-    <div class="flex flex-wrap gap-2 mb-8">
-      <button class="skill-tab active" data-tab="qa">🧪 AI QA &amp; Automation</button>
-      <button class="skill-tab" data-tab="arduino">⚙️ Arduino &amp; IoT</button>
-      <button class="skill-tab" data-tab="office">📊 MS Office</button>
-      <button class="skill-tab" data-tab="design">🎨 Design</button>
-      <button class="skill-tab" data-tab="leadership">🎯 Leadership</button>
-      <button class="skill-tab" data-tab="technical">🔌 Technical</button>
-    </div>
+      <!-- IoT -->
+      <article class="proj reveal" data-cat="iot">
+        <button class="proj-visual img-visual" data-zoom="/src/smartbin/smart-bin.png" data-title="Smartbin System" aria-label="Enlarge Smartbin photo">
+          <img src="/src/smartbin/smart-bin.png" alt="Smartbin prototype" loading="lazy"/>
+        </button>
+        <div class="proj-body">
+          <span class="proj-cat mono">iot · 2023–24</span>
+          <h3>Smartbin System</h3>
+          <p>Touch-free bin: an ultrasonic sensor opens the lid on approach and monitors fill level for smarter waste collection.</p>
+          <ul class="tags"><li>Arduino</li><li>Ultrasonic</li><li>Servo</li><li>C/C++</li></ul>
+        </div>
+      </article>
 
-    
-    <div class="skill-panel active" data-panel="qa">
-      <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Recruiter-facing QA stack for reliable AI and web products</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="skill-card">
-          <div class="skill-icon">🎭</div>
-          <div class="skill-name">Playwright Automation</div>
-          <div class="skill-desc">End-to-end browser tests, locator strategy, regression flows, screenshots, traces, and repeatable defect evidence.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div></div>
+      <article class="proj reveal" data-cat="iot">
+        <button class="proj-visual img-visual" data-zoom="/src/rice_vending_machine/ricevendingmachine.png" data-title="Rice Vending Machine" aria-label="Enlarge Rice Vending Machine photo">
+          <img src="/src/rice_vending_machine/ricevendingmachine.png" alt="Rice vending machine prototype" loading="lazy"/>
+        </button>
+        <div class="proj-body">
+          <span class="proj-cat mono">automation · 2023–24</span>
+          <h3>Rice Vending Machine</h3>
+          <p>Coin-operated dispenser that measures and releases a precise amount of rice — an affordable, contactless community solution.</p>
+          <ul class="tags"><li>Arduino</li><li>Coin acceptor</li><li>Load cell</li></ul>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🐍</div>
-          <div class="skill-name">Python QA Utilities</div>
-          <div class="skill-desc">Data validation scripts, CSV/JSON checks, test data preparation, and lightweight automation helpers.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div><div class="skill-pip"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🤖</div>
-          <div class="skill-name">AI Data Quality</div>
-          <div class="skill-desc">Prompt output review, labeling consistency, edge-case spotting, hallucination checks, and result scoring.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🔌</div>
-          <div class="skill-name">API &amp; Integration Testing</div>
-          <div class="skill-desc">Request/response validation, status checks, payload review, and integration bug isolation.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div><div class="skill-pip"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🧾</div>
-          <div class="skill-name">Test Documentation</div>
-          <div class="skill-desc">Test cases, bug reports, reproduction steps, UAT notes, test summaries, and user manuals.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🧠</div>
-          <div class="skill-name">AI-Assisted QA Workflow</div>
-          <div class="skill-desc">Using ChatGPT, Codex, Gemini, and Google AI Studio to speed up test planning and coverage analysis.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div></div>
-        </div>
-      </div>
-    </div>
+      </article>
 
-    
-    <div class="skill-panel" data-panel="arduino">
-      <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Embedded systems and connected devices</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="skill-card">
-          <div class="skill-icon">🔧</div>
-          <div class="skill-name">Arduino Programming</div>
-          <div class="skill-desc">C/C++ for microcontroller logic, timing, and I/O control.</div>
-          <div class="skill-level">
-            <div class="skill-pip active"></div><div class="skill-pip active"></div>
-            <div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div>
-          </div>
+      <article class="proj reveal" data-cat="iot">
+        <button class="proj-visual img-visual" data-zoom="/src/smokealarmsystem/smokealarm.png" data-title="Smoke Alarm & CCTV System" aria-label="Enlarge Smoke Alarm system photo">
+          <img src="/src/smokealarmsystem/smokealarm.png" alt="Smoke alarm and CCTV system prototype" loading="lazy"/>
+        </button>
+        <div class="proj-body">
+          <span class="proj-cat mono">security · 2024–25</span>
+          <h3>Smoke Alarm &amp; CCTV</h3>
+          <p>Detects smoke, sounds the alarm and activates CCTV for real-time surveillance — built for faster emergency response.</p>
+          <ul class="tags"><li>Arduino</li><li>MQ-2 sensor</li><li>CCTV</li></ul>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">📡</div>
-          <div class="skill-name">Sensor Integration</div>
-          <div class="skill-desc">Ultrasonic, smoke, motion, coin — data capture from hardware.</div>
-          <div class="skill-level">
-            <div class="skill-pip active"></div><div class="skill-pip active"></div>
-            <div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🤖</div>
-          <div class="skill-name">Automated Systems</div>
-          <div class="skill-desc">Smart bins, vending machines, alarm triggers — real prototypes.</div>
-          <div class="skill-level">
-            <div class="skill-pip active"></div><div class="skill-pip active"></div>
-            <div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip"></div>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">📹</div>
-          <div class="skill-name">CCTV Integration</div>
-          <div class="skill-desc">Video surveillance setup and real-time monitoring systems.</div>
-          <div class="skill-level">
-            <div class="skill-pip active"></div><div class="skill-pip active"></div>
-            <div class="skill-pip active"></div><div class="skill-pip semi"></div><div class="skill-pip"></div>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">⚡</div>
-          <div class="skill-name">Circuit Design</div>
-          <div class="skill-desc">Schematic reading, breadboard prototyping, soldering.</div>
-          <div class="skill-level">
-            <div class="skill-pip active"></div><div class="skill-pip active"></div>
-            <div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🔌</div>
-          <div class="skill-name">IoT Systems</div>
-          <div class="skill-desc">Connected device architecture and embedded communication.</div>
-          <div class="skill-level">
-            <div class="skill-pip active"></div><div class="skill-pip active"></div>
-            <div class="skill-pip active"></div><div class="skill-pip semi"></div><div class="skill-pip"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="skill-panel" data-panel="office">
-      <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Professional documentation and reporting</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="skill-card">
-          <div class="skill-icon">📝</div><div class="skill-name">MS Word</div>
-          <div class="skill-desc">Document creation, formatting, technical reports.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">📊</div><div class="skill-name">MS Excel</div>
-          <div class="skill-desc">Data organization, formulas, basic data analysis.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">📽️</div><div class="skill-name">MS PowerPoint</div>
-          <div class="skill-desc">Professional slide decks, visual storytelling.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div></div>
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="skill-panel" data-panel="design">
-      <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Visual design and content creation</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="skill-card">
-          <div class="skill-icon">🎨</div><div class="skill-name">Canva</div>
-          <div class="skill-desc">Posters, flyers, org materials, social media content.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">✂️</div><div class="skill-name">Photo Editing</div>
-          <div class="skill-desc">Image enhancement and creative manipulation.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div><div class="skill-pip"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">📐</div><div class="skill-name">Layout Design</div>
-          <div class="skill-desc">Print and digital layouts for events and reports.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div></div>
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="skill-panel" data-panel="leadership">
-      <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Proven organizational and people skills</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="skill-card">
-          <div class="skill-icon">👨‍🏫</div><div class="skill-name">Class Leadership</div>
-          <div class="skill-desc">Class President since 2022 — representing 40+ students.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🎯</div><div class="skill-name">Event Management</div>
-          <div class="skill-desc">Planning and executing campus events and activities.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">💬</div><div class="skill-name">Communication</div>
-          <div class="skill-desc">Clear verbal and written communication in English and Filipino.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🤝</div><div class="skill-name">Collaboration</div>
-          <div class="skill-desc">Cross-functional teamwork and group project leadership.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">📢</div><div class="skill-name">Public Speaking</div>
-          <div class="skill-desc">Announcements, presentations, and academic forums.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div></div>
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="skill-panel" data-panel="technical">
-      <p style="font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:20px;">// Hands-on technical and systems knowledge</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="skill-card">
-          <div class="skill-icon">💻</div><div class="skill-name">Computer Literacy</div>
-          <div class="skill-desc">Hardware operations, OS, troubleshooting basics.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">⚡</div><div class="skill-name">Electrical Installation</div>
-          <div class="skill-desc">TVL background in electrical systems and wiring.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🛠️</div><div class="skill-name">Prototyping</div>
-          <div class="skill-desc">From concept to working physical model, hands-on build.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🔧</div><div class="skill-name">System Maintenance</div>
-          <div class="skill-desc">Hardware diagnostics and component-level troubleshooting.</div>
-          <div class="skill-level"><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip active"></div><div class="skill-pip semi"></div><div class="skill-pip"></div></div>
-        </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
-
-<section id="projects" class="section-pad reveal-section">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="section-tag">Featured Projects</div>
-    <h2 class="section-heading mb-2">Work that speaks for itself</h2>
-    <p class="section-sub mb-8">QA automation, AI data validation, and real technical systems with clear testing evidence.</p>
-
-    <div class="flex flex-wrap gap-2 mb-10">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="qa">QA Automation</button>
-      <button class="filter-btn" data-filter="manual">Manual Testing</button>
-      <button class="filter-btn" data-filter="web">Web-Based Systems</button>
-      <button class="filter-btn" data-filter="iot">IoT Systems</button>
-      <button class="filter-btn" data-filter="arduino">Arduino</button>
-      <button class="filter-btn" data-filter="automation">Automation</button>
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" class="section alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">04 · log</span>
+      <h2>Experience &amp; leadership</h2>
     </div>
-
-    <div class="projects-grid" id="projectsGrid">
-
-      
-      <div class="project-card" data-category="qa">
-        <div class="project-visual" style="background:linear-gradient(135deg,#03111c,#062a32);">
-          <div class="project-code-visual">
-            <div class="code-visual-head"><span>qa_pipeline.py</span><span>PASS</span></div>
-            <div class="code-visual-body">
-              <div><span class="kw">from</span> playwright.sync_api <span class="kw">import</span> expect</div>
-              <div><span class="kw">def</span> <span class="fn">test_ai_output_quality</span>(page):</div>
-              <div>&nbsp;&nbsp;page.<span class="fn">goto</span>(<span class="str">'/chat'</span>)</div>
-              <div>&nbsp;&nbsp;expect(page.locator(<span class="str">'.result'</span>)).<span class="fn">to_be_visible</span>()</div>
-              <div class="code-visual-pass">✓ UI flow · API response · data quality checked</div>
-            </div>
-          </div>
-          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 90 H92 V54 H160 V110 H250" stroke="#00D4FF" stroke-width="1" fill="none"/>
-            <path d="M44 318 H118 V260 H190 V304 H264" stroke="#00FF88" stroke-width="1" fill="none"/>
-            <circle cx="92" cy="90" r="4" fill="#00D4FF"/>
-            <circle cx="160" cy="54" r="4" fill="#00D4FF"/>
-            <circle cx="190" cy="304" r="4" fill="#00FF88"/>
-          </svg>
-        </div>
-        <div class="project-body">
-          <div class="project-number">// QA_CASE_STUDY_00</div>
-          <span class="project-cat qa">QA Automation</span>
-          <h3 class="project-title grad-cyan">AI QA Automation<br>Test Lab</h3>
-          <p class="project-desc">A recruiter-focused QA case study concept showing how I test AI and web products: Playwright browser automation, Python data checks, API response validation, defect evidence, and concise test reporting.</p>
-          <div class="project-tags">
-            <span class="tag">Playwright</span>
-            <span class="tag">Python</span>
-            <span class="tag">AI Data QA</span>
-            <span class="tag">API Testing</span>
-            <span class="tag">Bug Reports</span>
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="project-card" data-category="qa manual">
-        <div class="project-visual" style="background:linear-gradient(135deg,#061017,#1f2937);">
-          <img src="/src/Manual-Testing/manual_testing.png" alt="Manual Testing Project"/>
-          <div class="project-visual-fallback">
-            <div class="project-visual-icon">MT</div>
-            <div class="project-visual-label">Manual Testing</div>
-          </div>
-          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-            <path d="M28 70 H96 V118 H150 V78 H246" stroke="#00FF88" stroke-width="1" fill="none"/>
-            <path d="M40 314 H116 V260 H186 V322 H262" stroke="#00D4FF" stroke-width="1" fill="none"/>
-            <circle cx="96" cy="70" r="4" fill="#00FF88"/>
-            <circle cx="150" cy="118" r="4" fill="#00FF88"/>
-            <circle cx="186" cy="322" r="4" fill="#00D4FF"/>
-          </svg>
-        </div>
-        <div class="project-body">
-          <div class="project-number">// QA_CASE_STUDY_01</div>
-          <span class="project-cat manual">Manual Testing</span>
-          <h3 class="project-title grad-mix">Manual Testing<br>Project</h3>
-          <p class="project-desc">A manual QA project focused on reviewing system behavior, writing test scenarios, documenting actual results, and preparing clear defect evidence for validation and reporting.</p>
-          <div class="project-tags">
-            <span class="tag">Manual QA</span>
-            <span class="tag">Test Cases</span>
-            <span class="tag">Bug Reports</span>
-            <span class="tag">Validation</span>
-            <span class="tag">Test Evidence</span>
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="project-card" data-category="web qa automation">
-        <div class="project-visual" style="background:linear-gradient(135deg,#03111c,#173547);">
-          <img src="/src/Auto-QA/auto_qa.png" alt="Auto-QA Web-Based System"/>
-          <div class="project-visual-fallback">
-            <div class="project-visual-icon">QA</div>
-            <div class="project-visual-label">Auto-QA System</div>
-          </div>
-          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 78 H88 V126 H142 V86 H242" stroke="#00D4FF" stroke-width="1" fill="none"/>
-            <path d="M48 300 H112 V250 H178 V318 H260" stroke="#00FF88" stroke-width="1" fill="none"/>
-            <circle cx="88" cy="78" r="4" fill="#00D4FF"/>
-            <circle cx="142" cy="126" r="4" fill="#00D4FF"/>
-            <circle cx="178" cy="318" r="4" fill="#00FF88"/>
-          </svg>
-        </div>
-        <div class="project-body">
-          <div class="project-number">// WEB_SYSTEM_01</div>
-          <span class="project-cat web">Web-Based System</span>
-          <h3 class="project-title grad-cyan">Auto-QA<br>System</h3>
-          <p class="project-desc">A web-based quality assurance system for organizing test workflows, tracking validation activity, and presenting QA results in a clearer dashboard-style interface for software testing work.</p>
-          <div class="project-tags">
-            <span class="tag">Web System</span>
-            <span class="tag">QA Workflow</span>
-            <span class="tag">Dashboard</span>
-            <span class="tag">Testing</span>
-            <span class="tag">Documentation</span>
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="project-card" data-category="web automation">
-        <div class="project-visual" style="background:linear-gradient(135deg,#081323,#203041);">
-          <img src="/src/Ojt-Tracker/ojt-tracker.png" alt="OJT Tracker Web-Based System"/>
-          <div class="project-visual-fallback">
-            <div class="project-visual-icon">OJT</div>
-            <div class="project-visual-label">OJT Tracker</div>
-          </div>
-          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30 54 H106 V100 H178 V70 H252" stroke="#00D4FF" stroke-width="1" fill="none"/>
-            <path d="M42 334 H122 V286 H182 V230 H260" stroke="#FF6B00" stroke-width="1" fill="none"/>
-            <circle cx="106" cy="54" r="4" fill="#00D4FF"/>
-            <circle cx="178" cy="100" r="4" fill="#00D4FF"/>
-            <circle cx="182" cy="286" r="4" fill="#FF6B00"/>
-          </svg>
-        </div>
-        <div class="project-body">
-          <div class="project-number">// WEB_SYSTEM_02</div>
-          <span class="project-cat web">Web-Based System</span>
-          <h3 class="project-title grad-mix">OJT Tracker<br>System</h3>
-          <p class="project-desc">A web-based tracking platform for monitoring on-the-job training records, student progress, attendance-related updates, and coordinator review needs in a structured digital workflow.</p>
-          <div class="project-tags">
-            <span class="tag">Web App</span>
-            <span class="tag">OJT Monitoring</span>
-            <span class="tag">Records</span>
-            <span class="tag">Student Tracking</span>
-            <span class="tag">Admin Workflow</span>
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="project-card" data-category="web automation">
-        <div class="project-visual" style="background:linear-gradient(135deg,#111018,#2f2236);">
-          <img src="/src/San Ignacio Canteen System/canteen-management system.png" alt="San Ignacio Canteen Management Web-Based System"/>
-          <div class="project-visual-fallback">
-            <div class="project-visual-icon">POS</div>
-            <div class="project-visual-label">Canteen Management</div>
-          </div>
-          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 116 H90 V70 H158 V126 H248" stroke="#FF6B00" stroke-width="1" fill="none"/>
-            <path d="M56 322 H126 V266 H202 V304 H268" stroke="#00D4FF" stroke-width="1" fill="none"/>
-            <circle cx="90" cy="116" r="4" fill="#FF6B00"/>
-            <circle cx="158" cy="70" r="4" fill="#FF6B00"/>
-            <circle cx="202" cy="304" r="4" fill="#00D4FF"/>
-          </svg>
-        </div>
-        <div class="project-body">
-          <div class="project-number">// WEB_SYSTEM_03</div>
-          <span class="project-cat web">Web-Based System</span>
-          <h3 class="project-title grad-orange">San Ignacio<br>Canteen System</h3>
-          <p class="project-desc">A web-based canteen management system for handling menu records, ordering or transaction workflows, and administrative monitoring for a more organized food-service operation.</p>
-          <div class="project-tags">
-            <span class="tag">Web System</span>
-            <span class="tag">Canteen Management</span>
-            <span class="tag">Transactions</span>
-            <span class="tag">Admin Panel</span>
-            <span class="tag">Records</span>
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="project-card" data-category="iot arduino automation">
-        <div class="project-visual" style="background:linear-gradient(135deg,#040d1e,#0a2040);">
-          <img src="/src/smartbin/smart-bin.png" alt="Smart Bin"/>
-          <div class="project-visual-fallback">
-            <div class="project-visual-icon">🗑️</div>
-            <div class="project-visual-label">Smart Waste System</div>
-          </div>
-          
-          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 80 H80 V40 H140" stroke="#00D4FF" stroke-width="1" fill="none"/>
-            <path d="M260 120 H220 V160 H180 V200" stroke="#FF6B00" stroke-width="1" fill="none"/>
-            <path d="M40 300 H100 V340 H160 V300 H220" stroke="#00D4FF" stroke-width="1" fill="none"/>
-            <circle cx="80" cy="80" r="4" fill="#00D4FF"/>
-            <circle cx="140" cy="40" r="4" fill="#00D4FF"/>
-            <circle cx="220" cy="120" r="4" fill="#FF6B00"/>
-            <circle cx="180" cy="200" r="4" fill="#FF6B00"/>
-            <circle cx="100" cy="300" r="4" fill="#00D4FF"/>
-          </svg>
-        </div>
-        <div class="project-body">
-          <div class="project-number">// PROJECT_01</div>
-          <span class="project-cat iot">IoT System</span>
-          <h3 class="project-title grad-cyan">Smartbin<br>System</h3>
-          <p class="project-desc">An automated trash bin powered by Arduino with an ultrasonic sensor to detect approaching hands and automatically open the lid — plus garbage level monitoring for smart city waste management. Built and tested at BSU (2023–2024).</p>
-          <div class="project-tags">
-            <span class="tag">Arduino Uno</span>
-            <span class="tag">Ultrasonic Sensor</span>
-            <span class="tag">Servo Motor</span>
-            <span class="tag">C/C++</span>
-            <span class="tag">IoT</span>
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="project-card" data-category="iot arduino automation">
-        <div class="project-visual" style="background:linear-gradient(135deg,#071a10,#0f3020);">
-          <img src="/src/rice_vending_machine/ricevendingmachine.png" alt="Rice Vending Machine"/>
-          <div class="project-visual-fallback">
-            <div class="project-visual-icon">🍚</div>
-            <div class="project-visual-label">Vending Machine</div>
-          </div>
-          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-            <path d="M150 20 V80 H220 V130 H180" stroke="#00FF88" stroke-width="1" fill="none"/>
-            <path d="M80 200 H130 V250 H80 V300 H150" stroke="#FF6B00" stroke-width="1" fill="none"/>
-            <circle cx="150" cy="80" r="4" fill="#00FF88"/>
-            <circle cx="220" cy="130" r="4" fill="#00FF88"/>
-            <circle cx="130" cy="250" r="4" fill="#FF6B00"/>
-          </svg>
-        </div>
-        <div class="project-body">
-          <div class="project-number">// PROJECT_02</div>
-          <span class="project-cat auto">Automation</span>
-          <h3 class="project-title grad-orange">Rice Vending<br>Machine</h3>
-          <p class="project-desc">A coin-operated vending machine controlled by Arduino that automatically dispenses a precise amount of rice when coins are inserted. Designed as an affordable, contactless solution for community use. (2023–2024).</p>
-          <div class="project-tags">
-            <span class="tag">Arduino</span>
-            <span class="tag">Coin Acceptor</span>
-            <span class="tag">DC Motor</span>
-            <span class="tag">Load Cell</span>
-            <span class="tag">Automation</span>
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="project-card" data-category="iot arduino automation">
-        <div class="project-visual" style="background:linear-gradient(135deg,#140818,#2a1040);">
-          <img src="/src/smokealarmsystem/smokealarm.png" alt="Smoke Alarm CCTV"/>
-          <div class="project-visual-fallback">
-            <div class="project-visual-icon">🚨</div>
-            <div class="project-visual-label">Safety & Security</div>
-          </div>
-          <svg class="proj-circuit-overlay" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30 50 H90 V100 H60 V150 H120" stroke="#FF6B00" stroke-width="1" fill="none"/>
-            <path d="M200 80 H240 V130 H270 V200 H230" stroke="#00D4FF" stroke-width="1" fill="none"/>
-            <path d="M100 330 H150 V290 H200 V330 H250" stroke="#FF6B00" stroke-width="1" fill="none"/>
-            <circle cx="90" cy="50" r="4" fill="#FF6B00"/>
-            <circle cx="120" cy="150" r="4" fill="#FF6B00"/>
-            <circle cx="240" cy="80" r="4" fill="#00D4FF"/>
-          </svg>
-        </div>
-        <div class="project-body">
-          <div class="project-number">// PROJECT_03</div>
-          <span class="project-cat sec">Security System</span>
-          <h3 class="project-title" style="background:linear-gradient(135deg,var(--orange),#ffb347);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Smoke Alarm<br>&amp; CCTV System</h3>
-          <p class="project-desc">An integrated safety system that detects smoke via Arduino sensor and immediately triggers an alarm while activating CCTV for real-time video surveillance — enabling rapid emergency response. (2024–2025).</p>
-          <div class="project-tags">
-            <span class="tag">Arduino</span>
-            <span class="tag">MQ-2 Smoke Sensor</span>
-            <span class="tag">CCTV Module</span>
-            <span class="tag">Buzzer</span>
-            <span class="tag">Safety</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<section id="workflow" class="section-pad section-alt reveal-section">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="section-tag">Experience</div>
-    <h2 class="section-heading mb-2">Leadership &amp; Roles</h2>
-    <p class="section-sub mb-12">Building teams, advocating for students, directing technical programs.</p>
-
     <div class="timeline">
-      <div class="timeline-item reveal-item">
-        <div class="timeline-dot">01</div>
-        <div class="timeline-content">
-          <div class="timeline-period">2022 — PRESENT</div>
-          <h3 class="timeline-title">Class President</h3>
-          <p class="timeline-desc">Leading class meetings, relaying announcements, promoting unity and discipline among peers, and setting the standard for academic and organizational excellence over multiple academic years.</p>
-          <div class="project-tags"><span class="tag">Leadership</span><span class="tag">Communication</span><span class="tag">Organization</span></div>
-        </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot cyan"></div>
+        <span class="tl-date mono">2026 — Present</span>
+        <h3>Full-Stack Developer</h3>
+        <p>Building a scaffold-rental management platform and the automated billing, reporting and dashboard tools around it.</p>
+        <ul class="tags"><li>React</li><li>Supabase</li><li>PostgreSQL</li><li>Python</li></ul>
       </div>
-      <div class="timeline-item reveal-item">
-        <div class="timeline-dot">02</div>
-        <div class="timeline-content">
-          <div class="timeline-period">2024 — PRESENT</div>
-          <h3 class="timeline-title">Organization Officer</h3>
-          <p class="timeline-desc">Assisting in planning and executing organizational activities, communicating with student members, supporting leadership goals, and promoting active participation in campus events.</p>
-          <div class="project-tags"><span class="tag">Event Planning</span><span class="tag">Team Support</span><span class="tag">Engagement</span></div>
-        </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot green"></div>
+        <span class="tl-date mono">Previous role</span>
+        <h3>Software Quality Assurance Analyst</h3>
+        <p>Manual and Playwright automation testing, API checks, UAT/SIT, test reports in Google Sheets and system manuals in Figma.</p>
+        <ul class="tags"><li>Playwright</li><li>API testing</li><li>UAT · SIT</li><li>Figma</li></ul>
       </div>
-      <div class="timeline-item reveal-item">
-        <div class="timeline-dot">03</div>
-        <div class="timeline-content">
-          <div class="timeline-period">2024 — 2025</div>
-          <h3 class="timeline-title">CPET Director of TECHLINK</h3>
-          <p class="timeline-desc">Directing technical programs and student initiatives for the Computer Technology department organization — bridging students with industry skills and emerging technology.</p>
-          <div class="project-tags"><span class="tag">Program Direction</span><span class="tag">Tech Leadership</span><span class="tag">CPET</span></div>
-        </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot amber"></div>
+        <span class="tl-date mono">2022 — 2026</span>
+        <h3>BIT Computer Technology · Batangas State University</h3>
+        <p>Graduated Cum Laude; Dean's Lister 2023–2024. Built three Arduino systems from prototype to field test.</p>
       </div>
-      <div class="timeline-item reveal-item">
-        <div class="timeline-dot">04</div>
-        <div class="timeline-content">
-          <div class="timeline-period">2025 — PRESENT</div>
-          <h3 class="timeline-title">4th Year Rep — Computer Technology</h3>
-          <p class="timeline-desc">Representing the concerns and interests of 4th year Computer Technology students in university governance and student affairs discussions.</p>
-          <div class="project-tags"><span class="tag">Representation</span><span class="tag">Advocacy</span><span class="tag">Student Affairs</span></div>
-        </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot violet"></div>
+        <span class="tl-date mono">2022 — 2026</span>
+        <h3>Student Leadership</h3>
+        <p>Class President · Organization Officer · CPET Director of TECHLINK (2024–25) · 4th Year Representative, Computer Technology.</p>
+        <ul class="tags"><li>Leadership</li><li>Event planning</li><li>Mentoring</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-
-<section id="github" class="section-pad reveal-section">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="section-tag">GitHub</div>
-    <h2 class="section-heading mb-2">Open source repositories</h2>
-    <p class="section-sub mb-8">Live code from GitHub — enter a username to fetch.</p>
-
-    <div class="github-wrap mb-8">
-      <div class="github-input-wrap">
-        <span class="github-icon">⌗</span>
-        <input type="text" id="githubUsername" placeholder="GitHub username (e.g. agentfabul)" class="github-input" value="agentfabul"/>
-      </div>
-      <button id="loadReposBtn" class="btn-primary">Load Repos</button>
+<!-- ============ GITHUB ============ -->
+<section id="github" class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">05 · diagnostics</span>
+      <h2>Live from GitHub</h2>
+      <p class="sec-sub">Most recently updated public repositories — <a class="link" href="https://github.com/agentfabul" target="_blank" rel="noopener">@agentfabul ↗</a></p>
     </div>
-
-    <div id="githubLoading" class="github-loading hidden">
-      <div class="loading-dots"><span></span><span></span><span></span></div>
-      <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin-top:14px;">Fetching repositories…</p>
+    <div class="gh-stats reveal">
+      <img src="https://github-readme-stats.vercel.app/api?username=agentfabul&show_icons=true&hide_border=true&bg_color=0a1628&title_color=22d3ee&icon_color=f5a524&text_color=dbe7f3&ring_color=22d3ee" alt="GitHub stats for agentfabul" loading="lazy" onerror="this.remove()"/>
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=agentfabul&layout=compact&hide_border=true&bg_color=0a1628&title_color=22d3ee&text_color=dbe7f3&langs_count=8" alt="Top languages for agentfabul" loading="lazy" onerror="this.remove()"/>
     </div>
-    <div id="githubError" class="github-error hidden">
-      <p>⚠️ <span id="githubErrorMsg"></span></p>
-    </div>
-    <div id="reposGrid" class="repos-grid"></div>
-    <div id="demoRepos" class="repos-grid">
-      <div class="repo-card"><div class="repo-header"><span class="repo-icon">📁</span><h3 class="repo-name">ai-qa-playwright-lab</h3></div><p class="repo-desc">Playwright and Python QA demo for UI flows, API checks, and AI output validation evidence.</p><div class="repo-footer"><span class="repo-lang"><span style="width:10px;height:10px;border-radius:50%;background:#3572A5;display:inline-block;"></span>Python</span><a href="#" class="repo-link">View ↗</a></div></div>
-      <div class="repo-card"><div class="repo-header"><span class="repo-icon">📁</span><h3 class="repo-name">smartbin-arduino</h3></div><p class="repo-desc">Automated trash bin using ultrasonic sensor and servo motor with garbage level detection.</p><div class="repo-footer"><span class="repo-lang"><span style="width:10px;height:10px;border-radius:50%;background:#f34b7d;display:inline-block;"></span>C++</span><a href="#" class="repo-link">View ↗</a></div></div>
-      <div class="repo-card"><div class="repo-header"><span class="repo-icon">📁</span><h3 class="repo-name">rice-vending-machine</h3></div><p class="repo-desc">Coin-operated rice dispenser with precise weight dispensing controlled via Arduino.</p><div class="repo-footer"><span class="repo-lang"><span style="width:10px;height:10px;border-radius:50%;background:#f34b7d;display:inline-block;"></span>C++</span><a href="#" class="repo-link">View ↗</a></div></div>
-      <div class="repo-card"><div class="repo-header"><span class="repo-icon">📁</span><h3 class="repo-name">smoke-alarm-cctv</h3></div><p class="repo-desc">Integrated smoke detection and real-time video monitoring safety system.</p><div class="repo-footer"><span class="repo-lang"><span style="width:10px;height:10px;border-radius:50%;background:#f34b7d;display:inline-block;"></span>C++</span><a href="#" class="repo-link">View ↗</a></div></div>
+    <div id="reposGrid" class="repo-grid" aria-live="polite">
+      <div class="repo skeleton"></div><div class="repo skeleton"></div><div class="repo skeleton"></div>
+      <div class="repo skeleton"></div><div class="repo skeleton"></div><div class="repo skeleton"></div>
     </div>
   </div>
 </section>
 
-
-<section id="contact" class="section-pad section-alt reveal-section">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="section-tag">Contact</div>
-    <h2 class="section-heading mb-2">Let's improve product quality together</h2>
-    <p class="section-sub mb-12">Open to QA internships, entry-level AI QA roles, test automation work, and software quality opportunities.</p>
-
-    <div class="grid lg:grid-cols-5 gap-12">
-      
-      <div class="lg:col-span-2 space-y-5">
-        <div class="contact-cta">
-          <h3 style="font-family:var(--font-display);font-size:1.15rem;font-weight:800;margin-bottom:8px;">Open to opportunities</h3>
-          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.75;">Whether it's an internship, freelance project, or entry-level QA role — especially involving AI QA, Playwright automation, Python validation, or product testing — I'd love to connect and talk.</p>
-        </div>
-        <a href="mailto:fabuljohnloyd27@gmail.com" class="contact-link">
-          <span class="contact-icon">✉️</span>
-          <div>
-            <div style="font-family:var(--font-mono);font-size:10px;opacity:.5;margin-bottom:2px;">EMAIL</div>
-            <div style="font-weight:700;font-size:13.5px;">fabuljohnloyd27@gmail.com</div>
-          </div>
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="section alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">06 · open a channel</span>
+      <h2>Let's build something reliable</h2>
+      <p class="sec-sub">Open to full-stack, web development and QA automation roles, freelance projects and collaborations.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-cards reveal">
+        <a class="c-card" href="mailto:fabuljohnloyd27@gmail.com">
+          <span class="c-ico">✉️</span><span><small>Email</small>fabuljohnloyd27@gmail.com</span>
         </a>
-        <a href="https://www.linkedin.com/in/john-loyd-fabul-99a758410" target="_blank" class="contact-link">
-          <span class="contact-icon">💼</span>
-          <div>
-            <div style="font-family:var(--font-mono);font-size:10px;opacity:.5;margin-bottom:2px;">LINKEDIN</div>
-            <div style="font-weight:700;font-size:13px;">john-loyd-fabul-99a758410</div>
-          </div>
+        <a class="c-card" href="https://www.linkedin.com/in/john-loyd-fabul-99a758410" target="_blank" rel="noopener">
+          <span class="c-ico">💼</span><span><small>LinkedIn</small>john-loyd-fabul-99a758410</span>
         </a>
-        <a href="tel:09197626160" class="contact-link">
-          <span class="contact-icon">📞</span>
-          <div>
-            <div style="font-family:var(--font-mono);font-size:10px;opacity:.5;margin-bottom:2px;">PHONE</div>
-            <div style="font-weight:700;font-size:13.5px;">0919 762 6160</div>
-          </div>
+        <a class="c-card" href="https://github.com/agentfabul" target="_blank" rel="noopener">
+          <span class="c-ico">🐙</span><span><small>GitHub</small>github.com/agentfabul</span>
         </a>
+        <a class="c-card" href="tel:09197626160">
+          <span class="c-ico">📞</span><span><small>Phone</small>0919 762 6160</span>
+        </a>
+        <div class="avail mono"><span class="dot"></span> Usually replies within 24 hours · Asia/Manila (UTC+8)</div>
       </div>
 
-      
-      <div class="lg:col-span-3">
-        <div class="contact-form-card">
-          <form id="contactForm" class="space-y-5" action="https://formsubmit.co/ajax/fabuljohnloyd27@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New portfolio message for John Loyd Fabul"/>
-            <input type="hidden" name="_template" value="table"/>
-            <input type="hidden" name="_captcha" value="false"/>
-            <div class="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label class="form-label">Full Name</label>
-                <input type="text" name="name" placeholder="Your full name" class="form-input" required/>
-              </div>
-              <div>
-                <label class="form-label">Email</label>
-                <input type="email" name="email" placeholder="hireme@company.com" class="form-input" required/>
-              </div>
-            </div>
-            <div>
-              <label class="form-label">Company / Organization</label>
-              <input type="text" name="company" placeholder="Your company or institution" class="form-input"/>
-            </div>
-            <div>
-              <label class="form-label">Subject</label>
-              <select name="subject" class="form-input">
-                <option>Job Opportunity</option>
-                <option>Internship</option>
-                <option>Project Collaboration</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div>
-              <label class="form-label">Message</label>
-              <textarea rows="4" name="message" placeholder="Tell me about the opportunity or project…" class="form-input" required></textarea>
-            </div>
-            <p id="formError" class="form-error hidden">Message was not sent. Please try again or email me directly.</p>
-            <button type="submit" class="btn-primary w-full justify-center py-3.5 text-sm">
-              Send Message →
-            </button>
-          </form>
-          <div id="formSuccess" class="form-success hidden">
-            <span style="font-size:2.5rem;">✅</span>
-            <p style="font-family:var(--font-display);font-weight:800;font-size:1.2rem;">Message sent!</p>
-            <p style="font-size:13px;color:var(--text-muted);">I'll get back to you within 24 hours.</p>
+      <div class="form-card reveal">
+        <form id="contactForm" action="https://formsubmit.co/ajax/fabuljohnloyd27@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New message from portfolio"/>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+          <div class="row2">
+            <label>Full name<input type="text" name="name" placeholder="Your name" required/></label>
+            <label>Email<input type="email" name="email" placeholder="you@company.com" required/></label>
           </div>
+          <label>Company / organization<input type="text" name="company" placeholder="Optional"/></label>
+          <label>Subject
+            <select name="subject">
+              <option>Job opportunity</option>
+              <option>Freelance project</option>
+              <option>Collaboration</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>Message<textarea name="message" rows="5" placeholder="Tell me about the role or project…" required></textarea></label>
+          <p id="formError" class="form-msg err" hidden>Message wasn't sent. Please try again or email me directly.</p>
+          <button type="submit" class="btn btn-primary btn-block" id="sendBtn">Send message →</button>
+        </form>
+        <div id="formSuccess" class="form-success" hidden>
+          <div class="ok-badge">✓</div>
+          <h3>Message sent!</h3>
+          <p>Thanks — I'll get back to you within 24 hours.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
+</main>
 
 <footer class="footer">
-  <div class="max-w-7xl mx-auto px-6 py-8">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:900;letter-spacing:-.02em;">
-        <span class="text-cyan">[</span>JLF<span class="text-cyan">]</span>
-      </div>
-      <p style="font-size:12px;color:var(--text-muted);font-family:var(--font-mono);">
-        © 2026 John Loyd F. Fabul · AI QA Engineer · Playwright · Python.
-      </p>
-      <div class="flex gap-5">
-        <a href="https://www.linkedin.com/in/john-loyd-fabul-99a758410" target="_blank" class="footer-link">LinkedIn</a>
-        <a href="mailto:fabuljohnloyd27@gmail.com" class="footer-link">Email</a>
-        <a href="tel:09197626160" class="footer-link">Phone</a>
-      </div>
+  <div class="hazard" aria-hidden="true"></div>
+  <div class="wrap foot-inner">
+    <a href="#hero" class="logo"><span class="c">[</span>JLF<span class="c">]</span><span class="logo-os">.os</span></a>
+    <p class="mono">© 2026 John Loyd F. Fabul · Full-Stack Developer · QA Automation</p>
+    <div class="foot-links">
+      <a href="https://github.com/agentfabul" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/john-loyd-fabul-99a758410" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:fabuljohnloyd27@gmail.com">Email</a>
     </div>
   </div>
 </footer>
 
-<button id="backToTop" class="back-to-top hidden" aria-label="Back to top">↑</button>
+<button id="backToTop" class="to-top" aria-label="Back to top" hidden>↑</button>
 
+<!-- Image modal -->
+<div id="imageModal" class="modal" hidden>
+  <div class="modal-bg" data-close></div>
+  <figure class="modal-box">
+    <button class="modal-x" data-close aria-label="Close">×</button>
+    <img id="modalImg" src="" alt=""/>
+    <figcaption id="modalTitle" class="mono"></figcaption>
+  </figure>
+</div>
 
-<div id="imageModal" class="image-modal hidden">
-  <div class="image-modal-overlay" onclick="closeImageModal()"></div>
-  <div class="image-modal-content">
-    <button class="image-modal-close" onclick="closeImageModal()">×</button>
-    <h3 id="imageModalTitle" style="padding:14px;font-family:var(--font-display);font-weight:700;border-bottom:1px solid var(--border);"></h3>
-    <img id="imageModalImg" class="image-modal-img" src="" alt="Project Image"/>
+<!-- Assistant -->
+<button id="aiChatButton" class="chat-fab" aria-label="Open portfolio assistant">🤖</button>
+<div id="aiChatContainer" class="chat" hidden>
+  <div class="chat-head">
+    <span class="mono">// jlf.assistant</span>
+    <span><button id="aiClearBtn" class="mono">clear</button><button id="aiCloseBtn" aria-label="Close chat">✕</button></span>
+  </div>
+  <div id="aiMessages" class="chat-msgs"></div>
+  <div class="chat-quick">
+    <button data-q="skills">Skills</button><button data-q="projects">Projects</button><button data-q="hire">Hire</button><button data-q="contact">Contact</button>
+  </div>
+  <div class="chat-input">
+    <input id="aiInput" placeholder="Ask about skills, projects…" aria-label="Message"/>
+    <button id="aiSendBtn" class="btn btn-primary btn-sm">Send</button>
   </div>
 </div>
 
-
-<button id="aiChatButton" class="chatbot-btn" title="Chat with John's Assistant">🤖</button>
-<div id="aiChatContainer" class="hidden" style="position:fixed;bottom:84px;right:20px;z-index:10000;width:360px;max-width:96%;box-shadow:var(--shadow);">
-  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;">
-    <div style="padding:12px 16px;background:var(--surface);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);">
-      <div style="font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--cyan);">// JLF.assistant</div>
-      <div style="display:flex;gap:8px;">
-        <button id="aiClearBtn" style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted);background:none;border:none;cursor:pointer;">clear</button>
-        <button id="aiCloseBtn" style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);background:none;border:none;cursor:pointer;">✕</button>
-      </div>
-    </div>
-    <div id="aiMessages" style="max-height:260px;padding:12px;overflow:auto;display:flex;flex-direction:column;gap:8px;"></div>
-    <div style="display:flex;gap:8px;padding:10px;border-top:1px solid var(--border);background:var(--surface);">
-      <input id="aiInput" placeholder="Ask about John's skills, projects…"
-        style="flex:1;padding:8px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-family:var(--font-mono);font-size:12px;outline:none;"/>
-      <button id="aiSendBtn" class="btn-primary" style="padding:8px 16px;font-size:12px;">Send</button>
-    </div>
-  </div>
-</div>
-
-
+<script src="/assets/bg.js"></script>
 <script src="/assets/main.js"></script>
 </body>
 </html>
